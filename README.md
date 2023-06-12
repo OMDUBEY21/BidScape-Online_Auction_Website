@@ -117,8 +117,7 @@ Signup page:
 login page:
 ![11](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/abd4113c-75fb-436c-bdf3-6dbc4f45abef)
 
-<br>
-<br>
+
 Bidder page:
 ![b1](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/699c983d-7bd1-45a9-81dc-c182aa100903)
 ![b2](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/f78de703-e499-453a-9bff-7be2b2099a9e)
@@ -126,8 +125,7 @@ Bidder page:
 ![b4](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/4ab0deb9-26ca-4c2f-86ec-f5502fe444f8)
 ![b5](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/d6c2f5f7-e65e-4c08-9f6a-2fffb5346958)
 
-<br>
-<br>
+
 Seller page:
 ![s1](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/a29a6a0f-53b9-4b69-80b3-fecafc7871d0)
 ![s2](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/6ad51093-f226-490c-bc5f-5dd1d852080f)

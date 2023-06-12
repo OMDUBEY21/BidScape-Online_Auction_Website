@@ -125,6 +125,7 @@ Bidder page:
 ![b3](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/15c362f4-60c8-4b50-af26-f680749bcecd)
 ![b4](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/4ab0deb9-26ca-4c2f-86ec-f5502fe444f8)
 ![b5](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/d6c2f5f7-e65e-4c08-9f6a-2fffb5346958)
+
 <br>
 <br>
 Seller page:

@@ -107,8 +107,7 @@ Admin Dashboard:
 ![8](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/bf8455f6-29c1-4bb8-93c9-bc85298471ed)
 ![9](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/b75c6876-2c1d-4700-81d1-bb3faf44e9a0)
 
-<br>
-<br>
+
 Signup page:
 ![10](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/572adaa5-d7dc-48ca-9ce4-e5620891c05a)
 

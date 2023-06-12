@@ -80,22 +80,47 @@ Used Tech Stack
  #### Results--
 
     
-<!-- Home page:
+Home page:
+   
+![1](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/b5195a65-1c6b-420a-9c23-eb27d2c949dd)
+![1 1](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/5bcbf3db-9a52-4f3b-bd9b-83cbb6ea7569)
+
+About us:
     
-![tia1](https://user-images.githubusercontent.com/84987833/232560927-5d46da1d-a558-46e2-861b-5ebc47185162.png)
+   ![2](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/5a085db0-ea74-46b7-9b56-12e30674f532)
 
-![tia2](https://user-images.githubusercontent.com/84987833/232560974-0798ddf5-cddf-4327-9783-1793893f0075.png)
-
-![tia3](https://user-images.githubusercontent.com/84987833/232561065-8f69c756-7bec-4c91-a3ed-7236e94734e7.png)
-
-Applied Jobs:
-    
-   ![tiaa4](https://user-images.githubusercontent.com/84987833/232558918-a51dbd84-b7d2-4217-b4ba-52173f28db85.png)
    
 
 Admin Dashboard:
     
-    
-   ![tia5](https://user-images.githubusercontent.com/84987833/232559113-a81e8a7b-ca15-4986-b01e-41c9aea08da3.png)
-      
-   ![tia6](https://user-images.githubusercontent.com/84987833/232559215-bbaf1afe-15ad-4be8-a938-b8f7ad018050.png) -->
+![3](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/4440fe94-460e-4dd2-8de9-1b3d75db89f5)
+![4](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/30e709b6-6882-47b6-bb1c-1c1e63070283)
+![5](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/a774df18-9d5f-47b7-8742-082d3af98af2)
+![6](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/26bfd1b0-555a-4c72-8625-dac4a39f97e1)
+![7](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/ec8b7935-cf66-4854-9eb7-c019ef878857)
+![8](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/bf8455f6-29c1-4bb8-93c9-bc85298471ed)
+![9](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/b75c6876-2c1d-4700-81d1-bb3faf44e9a0)
+
+Signup page:
+![10](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/572adaa5-d7dc-48ca-9ce4-e5620891c05a)
+
+
+login page:
+![11](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/abd4113c-75fb-436c-bdf3-6dbc4f45abef)
+
+Bidder page:
+![b1](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/699c983d-7bd1-45a9-81dc-c182aa100903)
+![b2](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/f78de703-e499-453a-9bff-7be2b2099a9e)
+![b3](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/15c362f4-60c8-4b50-af26-f680749bcecd)
+![b4](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/4ab0deb9-26ca-4c2f-86ec-f5502fe444f8)
+![b5](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/d6c2f5f7-e65e-4c08-9f6a-2fffb5346958)
+
+
+Seller page:
+![s1](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/a29a6a0f-53b9-4b69-80b3-fecafc7871d0)
+![s2](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/6ad51093-f226-490c-bc5f-5dd1d852080f)
+
+
+
+
+   

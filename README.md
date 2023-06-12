@@ -87,6 +87,8 @@ Home page:
    
 ![1](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/b5195a65-1c6b-420a-9c23-eb27d2c949dd)
 ![1 1](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/5bcbf3db-9a52-4f3b-bd9b-83cbb6ea7569)
+<br>
+<br>
 
 About us:
     

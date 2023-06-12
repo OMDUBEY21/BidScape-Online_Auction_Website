@@ -75,6 +75,9 @@ Used Tech Stack
 4. Run server:
 
     `python manage.py runserver`
+  
+5. If you are Docker user then u can use this command:
+   docker pull omdubey/auction_website
     
     
  #### Results--

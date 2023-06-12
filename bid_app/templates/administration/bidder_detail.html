@@ -1,0 +1,102 @@
+
+{% extends 'administration/index.html' %}
+{% load static %}
+{% block body %}
+{% load custom_tags %}
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-row justify-content-between">
+                <h4 class="card-title mb-1">Bidder Details</h4>
+                <p class="text-muted mb-1">Your data status</p>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="preview-list">
+
+
+                    <div class="preview-item border-bottom">
+                        <div class="col-md-6"><hr>
+                            <h4><span class="text-muted mb-1">Name </span>:  {{data.user.first_name}} {{data.user.last_name}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Email </span>:  {{data.user.email}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Address </span>: {{data.address}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Contact </span>: {{data.contact}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Date of birth </span>: {{data.dob}}</h4><hr>
+                        </div>
+                      <div class="preview-item-content d-sm-flex flex-grow">
+                        <div class="col-md-6" style="height:100px;"><hr>
+                            <h4>  <img src="{{data.image.url}}" style="width:150px;height:140px"></h4>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    
+                    
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        
+        <div class="col-md-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-row justify-content-between">
+                <h4 class="card-title mb-1">Additional Details</h4>
+                <p class="text-muted mb-1">Your data status</p>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="preview-list">
+
+
+                    <div class="preview-item border-bottom">
+                        {% if data.pan_card %}
+                        <div class="col-md-6"><hr>
+                            <h4><span class="text-muted mb-1">Pan Card </span>:  <a href="{{data.pan_card.url}}" target="_blank" class="btn btn-info"> view</a></h4><hr>
+                            <h4><span class="text-muted mb-1">Aadhar Card </span>:  <a href="{{data.adhar_card.url}}" target="_blank" class="btn btn-info"> view</a></h4><hr>
+                            <h4><span class="text-muted mb-1">Bank Statement </span>: <a href="{{data.bank_statement.url}}" target="_blank" class="btn btn-info"> view</a></h4><hr>
+                          
+                        </div>
+                      <div class="preview-item-content d-sm-flex flex-grow">
+                        
+                        <div class="col-md-6"><hr>
+
+                            <h4><span class="text-muted mb-1">Pan Card number </span>:  {{data.pan_number}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Aadhar Card number </span>:  {{data.adhar_number}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Bank Account number </span>: {{data.account_number}}</h4><hr>
+                            
+                        </div>
+                        {% else %}
+                        <h4><span class="text-muted mb-1">Additional Detail not found.</span></h4><hr>
+                            
+                        {% endif %}
+                        <a href="{% url 'change_user_status' data.id %}" onclick="return confirm('Are you sure to change status?')"><button class="btn btn-info">Change Status</button></a>
+                       
+                      </div>
+                    </div>
+                  
+                    
+                    
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    {% endblock %}

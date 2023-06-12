@@ -1,0 +1,131 @@
+{% extends 'administration/index.html' %}
+{% load static %}
+{% block body %}
+
+<link rel = stylesheet href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
+
+<style>
+
+    #example_length{
+      text-align:left;
+      margin-bottom:2%;
+    }
+  
+    .dataTables_length{
+      text-align:left;
+    }
+  
+    .paginate_button{
+        border:1px solid gray;
+        padding:6px;
+        cursor: pointer;
+        color:white;
+        background-color:green;
+        margin:1px;
+    }
+  
+    .dataTables_info{
+      display:none;
+    }
+  
+  </style>
+
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title"> Basic Tables </h3>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Tables</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">View All Product</h4>
+              
+              </p>
+              <div class="table-responsive">
+                <table class="table table-striped" id="example">
+                  <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>User</th>
+                        <th>Image</th>
+                          <th> Category</th>
+                        <th>Price</th>
+                        {% comment %} <th>Status</th> {% endcomment %}
+                           <th> Start</th>
+                        <th>Action</th>
+                    
+                      </tr>
+                      </thead>
+                       <tbody>
+                    
+                        {% for i in pro %}
+                    
+                      <tr>
+                    
+                        <td>{{i.name}}</td>
+                        <td>{% if i.user.is_staff %}{{i.user.username}}{% endif %}{{i.user.first_name}} {{i.user.last_name}}</td>
+                        <td><img src="{{i.images.url}}" style="width:50px;height:50px"></td>
+                          <td>{{i.category.name}}</td>
+                          <td>{{i.min_price}}</td>
+                            {% comment %} <td><a href="">{{i.status}}</a></td> {% endcomment %}
+                          <td>{{i.session}}</td>
+                        <td><a href="{% if i.status == "pending" %}/change_status/{{i.id}}{% else %}#{% endif %}" {% if i.status == "pending" %}onclick="return confirm('Are you sure to change product status?')"{% else %}{% endif %}><button {% if i.status == "pending" %}class="btn btn-primary"{% else %}class="btn btn-default" disabled{% endif %}>{{i.status}}</button></a>
+                        <a href="{% url 'delete_product' i.id %}" onclick="return confirm('Are you sure?')"><button class="btn btn-danger">Delete</button></a>
+                        <a href="{% url 'admin_product_detail' i.id %}"><button class="btn btn-info">Detail</button></a></td>
+                        
+
+                    
+                      </tr>
+                        {% empty %}
+                    <tr>
+                      <td>Data Not Found</td>
+                    </tr>
+                        {% endfor %}
+                        </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+            //Only needed for the filename of export files.
+            //Normally set in the title tag of your page.
+            document.title='Simple DataTable';
+            // DataTable initialisation
+            $('#example').DataTable(
+                {
+                    "dom": '<"dt-buttons"Bf><"clear">lirtp',
+                    "paging": true,
+                    "autoWidth": true,
+                    "buttons": [
+                        'colvis',
+                        'copyHtml5',
+                'csvHtml5',
+                        'excelHtml5',
+                'pdfHtml5',
+                        'print'
+                    ]
+                }
+            );
+        });
+        </script>
+
+{% endblock %}

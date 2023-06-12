@@ -1,0 +1,167 @@
+
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+	*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.hero{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("/static/images/back-image.png");
+    background-position: center;
+    background-size: cover;
+    padding: 10px 10%;
+    overflow: hidden;
+    position: relative;
+}
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 40px;
+    color: #fff;
+    background-image: linear-gradient(45deg, #df4881, #e63946);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+}
+.content{
+    margin-top: 4%;
+    max-width: 600px;
+    margin-bottom: 5%;
+}
+.content h1{
+    font-size: 70px;
+    color: #222;
+}
+.content p{
+    margin: 10px 0 30px;
+    color: #333;
+    animation-delay: 0.5s;
+}
+.content .btn{
+    padding: 15px 80px;
+    font-size: 16px;
+    animation-delay: 1s;
+}
+.btn:hover{
+    border-top-right-radius: 30px;
+}
+.feature-img{
+    width: 600px;
+    position: absolute;
+    bottom: 0;
+    right: 2%; 
+    margin-bottom:360px;
+ 
+}
+.feature-img.anim{
+    animation-delay: 1.5s;
+}
+.anim{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+}
+@keyframes moveup{
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+/* Get Started */
+#get-started{
+                background: #c31432; 
+                background: -webkit-linear-gradient(to right, #240b36, #c31432);  
+                background: linear-gradient(to right, #240b36, #c31432);
+                /* padding-bottom: 200px; */
+            }
+            .started{
+                text-align: center;
+            /* margin: 0px auto 80px; */
+            position: relative;
+            line-height: 60px;
+            color: white;
+            }
+    
+            .card1 {
+            color: white;
+            border: 2px solid red;
+            padding: 5px;
+            border-end-end-radius: 25px;
+            /* height: 80px;     */
+            margin-left: 300px;
+            margin-right:300px;
+            margin-bottom:30px;
+            border-start-end-radius: #ff523b;
+        }
+        b{
+            color:#ff523b
+        }
+        .card1 p {
+            font-size: 18px;
+            text-align: left;
+            }
+        .card1Container:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        @media screen and (max-width: 600px) {
+            .card1 {
+                width: 100%;
+            }
+        }
+</style>
+<div class="hero">      
+<div class="content">
+	<h1 class="anim">About Us</h1>
+	<p class="anim">Welcome to our online auction system website, where you can find a wide range of items up for auction from sellers all over the world. Our platform offers a secure and convenient way to buy and sell goods in an online auction format.
+    </p>
+    <p class="anim">Whether you're looking for rare collectibles, vintage clothing, or modern technology, our platform has it all. We offer a variety of categories to make it easy to find what you're looking for, including art, jewelry, antiques, electronics, and more. Each item listed on our platform comes with detailed descriptions and high-quality photos to give you a clear idea of what you're bidding on.
+    </p>
+    <p class="anim">Our bidding process is simple and straightforward. Once you find an item you want to bid on, you can place your bid and track the auction in real-time. Our platform will automatically notify you when you've been outbid, so you can increase your bid if you choose to. Once the auction ends, the highest bidder wins the item and completes the transaction through our secure payment system.
+    </p>
+    <p class="anim">We prioritize the safety and security of our users above all else. We use the latest technology and industry-standard security measures to ensure that all transactions are conducted safely and securely. We also have a dedicated team of experts who monitor our platform 24/7 to prevent fraudulent activity and ensure a fair and transparent auction process for everyone.
+    </p>
+    <p class="anim">At our online auction system website, we are committed to providing the best possible experience for our users. Whether you're a buyer or a seller, we offer comprehensive guides and support to help you every step of the way. We are always looking for ways to improve our platform and welcome feedback from our users.
+    </p>
+	<a href="/signup" class="btn anim">Join Now</a>
+</div>
+<img src="/static/images/pic.png" class="feature-img anim"> 
+</div>
+<!-- 
+<div id="get-started"><br>
+    <h2 class="started">Our Values</h2>
+
+    <br><br>
+        <div class="card1Container">
+        <div class="card1" style="background-color:black;">
+        <p><b class="arrow ">>>></b> An ethical bidding environment for our customers</p>
+        </div>
+        <div class="card1" style="background-color:black;">
+        <p><b class="arrow ">>>></b> Accurate product and pricing information</p>
+        </div>
+        <div class="card1" style="background-color:black;">
+        <p><b class="arrow ">>>></b> Quick responses to customer inquiries and problems</p>
+        </div>
+        <div class="card1" style="background-color:black;">
+        <p><b class="arrow ">>>></b> Highest standards for our customer’s privacy</p>
+        </div>
+        <div class="card1" style="background-color:black;">
+            <p><b class="arrow ">>>></b> Constant innovation and development of new features</p>
+        </div>
+        <div class="card1" style="background-color:black;">
+            <p><b class="arrow ">>>></b> Long-term relationship with our suppliers and partners</p>
+        </div>
+
+        </div>
+</div> -->
+
+    {% endblock %}

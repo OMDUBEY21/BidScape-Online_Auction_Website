@@ -1,0 +1,4 @@
+<option value="">---select session time---</option>
+{% for course in courses %}
+<option value="{{ course.id }}">{{ course.time }}</option>
+{% endfor %}

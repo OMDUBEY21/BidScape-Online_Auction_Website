@@ -1,0 +1,262 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block body %}
+<style>
+    .bid-now-button{
+        padding-right:30px;
+        padding-left:20px
+     
+    }
+</style>
+
+<div class="be">
+    
+    <h1 class="title1">BidScape</h1>
+  
+</div>
+
+            <input name="lblId" type="text" value="34487" readonly="readonly" id="lblId" class="lblId" style="display: none;" />
+            <div class="live-auctions auction-section" style="background: none; border-bottom: none;">
+                <div class="wrap">
+               
+                        <h3 class="title">Live Deals</h3>
+            
+                    <div class="cols cols3">
+                                {% for i in live_product %}
+                                <div class="col" id='dv34487' style="margin-bottom: 10px;">
+                                    <div class="auction-block">
+                                        <h4>
+                                            <a href="{% url 'product_detail' i.id %}"  title="Click to View in Full Page">{{i.name}}</a></h4>
+                                        <span class="price">MRP : ₹ {{i.min_price}}</span>
+                                        {% if i.bid_type == "Auction" %}
+                                        <span style="color:green;">This product is for Auction</span>
+                                        {% else %}
+                                        <span style="color:red;">This product is for Tendor</span>
+                                        {% endif %}
+                                        <figure class="product-image">
+                                            
+                                            <a href="{% url 'product_detail' i.id %}" title="Click to View in Full Page"><img src="{{i.images.url}}" style="max-width: 220px;width: auto;max-height: 245px; height: auto;" alt="{{i.name}}"  /></a>
+                                        </figure>
+                                        <div class="bid-credit-row">
+                                            <span class="auction-id">Auction ID: {{i.id}}</span>
+                                        
+                                        </div>
+                                        <!--/.bid-credit-row-->
+                                        <div class="bid-row cf">
+                                            <span class="bid-price">&#8377;
+                                                                 <label id='Price34487'>{{i.final_price}}</label>
+                                            </span>
+                                            <div class="bid-status">
+                                                <div id='dvzoom34487' class='big-animate'>
+                                                    <span id="live_time_{{forloop.counter}}" class='timer' data-transition="customZoomTrans2"></span>
+                                                    <input type="hidden" id="start_live_bid_{{forloop.counter}}" value="{% getupcoming i.id i.endsession %}">
+                                                    <input type="hidden" id="pro_live_status_{{forloop.counter}}" value="{{i.status}}">
+                                                    <input type="hidden" id="myproid_live_{{forloop.counter}}" value="{{i.id}}">
+                                                </div>
+                                                <span class="bidder-name">
+                                                    <label id='UserName34487'></label>
+                                                    <label id='dt34487' style="display: none;"></label>
+                                                </span>
+                                            </div>
+                                            <!--/.bid-status-->
+                                        </div>
+                                        <div class="bid-option-row">
+                                            </span>
+                                            <span class="bid-now-button">
+                                                <a href="/product_detail/{{i.id}}">
+                                                    <input type="button" id="BidNow" value="BID NOW" class="button btn-lg bid-now" title="Click to Place BID" />
+                                                </a>
+                                            </span>
+                                        </div>
+                                        <!--/.bid-option-row-->
+                                    </div>
+                                    <!--/.auction-block-->
+                                </div>
+                                {% empty %}
+                                <h2 style="color:grey">No Deals Live</h2>
+                                {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!--/.live-auctions-->
+            <div class="upcoming-auctions auction-section" style="background-color: #000428;padding-top: 30px;padding-bottom: 60px;">
+                <div class="wrap">
+              
+                        <h3 class="title" style="color:white">Upcoming Deals</h3>
+           
+                    <div class="cols cols4">
+                        {% for i in upcoming_product %}
+                        
+                                <div class="col" style="margin-bottom: 10px;">
+                                    <div class="auction-block">
+                                        <h4>
+                                            <a href="/product_detail/{{i.id}}"  title="Click to View in Full Page">{{i.name}}</a></h4>
+                                            <span class="price">MRP : ₹ {{i.min_price}}</span>
+                                            {% if i.bid_type == "Auction" %}
+                                            <span style="color:green;">This product is for Auction</span>
+                                            {% else %}
+                                            <span style="color:red;">This product is for Tendor</span>
+                                            {% endif %}
+                                            
+                                            <figure class="product-image">
+                                                
+                                                <a href="/product_detail/{{i.id}}" title="Click to View in Full Page">
+                                                    <img src="{{i.images.url}}" style="max-width: 220px;width: auto;max-height: 245px; height: auto;" alt="{{i.name}}"/>
+                                                </a>
+                                            </figure>
+                                        
+                                            <div class="bid-action">
+                                                <span id="upcoming_time_{{forloop.counter}}"></span>
+                                                <input type="hidden" id="start_bid_{{forloop.counter}}" value="{% getupcoming i.id i.endsession %}">
+                                                <input type="hidden" id="pro_status_{{forloop.counter}}" value="{{i.status}}">
+                                                <input type="hidden" id="myproid_{{forloop.counter}}" value="{{i.id}}">
+                                            </div>
+                                        <!--/.bid-action-->
+                                    </div>
+                                    <!--/.auction-block-->
+                                </div>
+                        {% empty %}
+                                <h2 style="color:grey">Coming Soon</h2>
+                        {% endfor %}
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <!--/.upcoming-auctions-->
+            <div class="closed-auctions auction-section">
+                <div class="wrap">
+            
+                        <h3 class="title" style="border-top: none;">Closed Deals</h3>
+           
+                    <div class="cols cols4">
+                        <div id="divclos"></div>
+                        {% for i in closed_product %}
+                                <div class="col" style="margin-bottom: 10px;">
+                                    <div class="auction-block">
+                                        <h4>
+                                            <a href="/product_detail/{{i.id}}"  title="Click to View in Full Page">{{i.name}}</a></h4>
+                                            <span class="auction-id">Auction ID: {{i.id}}</span>
+                                            {% if i.bid_type == "Auction" %}
+                                            <span style="color:green;">This product is for Auction</span>
+                                            {% else %}
+                                            <span style="color:red;">This product is for Tendor</span>
+                                            {% endif %}
+                                        <figure class="product-image">
+                                            
+                                            <a href="/product_detail/{{i.id}}" title="Click to View in Full Page"><img src="{{i.images.url}}" style="max-width: 220px;width: auto;max-height: 245px; height: auto;" alt="25 Bidderboy Credits"  /></a>
+                                        </figure>
+                                        <div class="auction-status-row">
+                                            <span class="auction-status">{{i.status}}</span>
+                                            <span class="auction-winner">
+                                                <span id="rptrClosedProduct_lblUserName_0">{% if i.winner %}Sold{% else %}Not Sold{% endif %}</span></span>
+                                        </div>
+                                        <!--/.auction-status-row-->
+                                        <div class="bid-action bid-end-price">
+                                            Ended &#8377;
+                                                            <span id="rptrClosedProduct_lblPrice_0">{{i.final_price}}</span>
+                                        </div>
+                                        <!--/.bid-action-->
+                                        <div class="bid-option-row">
+                                            
+                                            <a id="rptrClosedProduct_lnkCart_0" title="Buy Now Not Available" class="aspNetDisabled button buy-now" title="Add to Cart" style="background:#f6bbc0 url(images/bgi/buy-button.png) no-repeat 0 0;cursor:pointer;">Buy Now</a>
+                                        </div>
+                                    </div>
+                                    <!--/.auction-block-->
+                                </div>
+                        {% empty %}
+                                <h1>There is no any closed auction.</h1>
+                        {% endfor %}
+                                
+                            
+                        
+                    </div>
+                {% if closed_product %}
+                     <a href="/all_product/" class="pull-right btn" style="background: #E63946  ; color: white; font-weight: bold;">VIEW ALL</a>
+                {% endif %}
+                    </div>
+            </div>
+            <!--/.closed-auctions-->
+        </div>
+        <!--/#content-->
+    </div>
+    <!--/#primary-->
+</div>
+<!--/#main -->
+
+<script>
+
+    var upcomingdata = "{{upcoming_product.count}}";
+    var livedata = "{{live_product.count}}";
+    var closeddata = "{{closed_product.count}}";
+
+    
+        setInterval(function(){
+            for(var i=1;i<=livedata*1;i++){
+                var start = document.getElementById('start_live_bid_'+i).value;
+                var status = document.getElementById('pro_live_status_'+i).value;
+                mydate = new Date(start).getTime() + (1000*60*60);
+                diftime = mydate - new Date().getTime();
+                var days = Math.floor(diftime / (1000*60*60*24));
+                var hours   =  Math.floor((diftime % (1000*60*60*24)) / (1000*60*60));
+                var minutes =  Math.floor((diftime % (1000*60*60)) / (1000*60));
+                var seconds =  Math.floor((diftime %  (1000*60)) / 1000);
+                document.getElementById('live_time_'+i).innerHTML = hours+":"+minutes+":"+seconds;
+                if(days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0 && status=="live"){
+                    var xhttp;    
+                    var bid_id = document.getElementById('myproid_live_'+i).value;
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            data = JSON.parse(this.responseText);
+                            console.log(data);
+                            window.location = data.myurl;
+                        }
+                    };
+                    xhttp.open("GET", "/changelivetocomplete/"+bid_id, true);
+                    xhttp.send();
+                }
+            }
+        },1000);
+
+        function convertTZ(date, tzString) {
+            return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
+        }
+    
+        setInterval(function(){
+            for(var j=1;j<=upcomingdata*1;j++){
+                startid = "start_bid_" + j;
+                var bid_id = document.getElementById('myproid_'+j).value
+                var start = document.getElementById(startid).value;
+                convertTZ(start, "Asia/Kolkata")
+                var status = document.getElementById('pro_status_'+j).value;
+                mydate = new Date(start).getTime();
+                diftime = mydate - new Date().getTime();
+                var days = Math.floor(diftime / (1000*60*60*24));
+                var seconds =  Math.floor((diftime %  (1000*60)) / 1000) ;
+                var minutes =  Math.floor((diftime % (1000*60*60)) / (1000*60));
+                var hours   =  Math.floor((diftime % (1000*60*60*24)) / (1000*60*60));
+                document.getElementById('upcoming_time_'+j).innerHTML = "Start in "+days+"d,"+hours+":"+minutes+":"+seconds;
+                if(days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0 && status=="upcoming"){
+                    var xhttp;
+                    var bid_id = document.getElementById('myproid_'+j).value;
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            data = JSON.parse(this.responseText);
+                            console.log(data);
+                            window.location = data.myurl;
+                        }
+                    };
+                    xhttp.open("GET", "/changeupcomingtolive/"+bid_id, true);
+                    xhttp.send();
+                }
+            }
+        },1000);
+    
+    
+</script>
+{% endblock %}

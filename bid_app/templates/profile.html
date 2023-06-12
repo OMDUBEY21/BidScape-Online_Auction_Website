@@ -1,0 +1,114 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<div id="inner_banner" class="inner_banner_section" style="margin-top:5%">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="full">
+          <div class="title-holder">
+            <div class="title-holder-cell text-left">
+              <h1 class="page-title">{% if request.user.id == pro.user.id %}User Profile{% else %}Seller Profile{% endif %}</h1>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <hr><div class="row">
+        <div class="col-md-6">
+            <strong>Full Name:</strong>
+        </div>
+        <div class="col-md-6">
+            {{pro.user.first_name}} {{pro.user.last_name}}
+        </div>
+    </div><hr>
+     <div class="row">
+        <div class="col-md-6">
+            <strong>Customer Pic:</strong>
+        </div>
+        <div class="col-md-6">
+           <img src="{{pro.image.url}}" style="width:150px;height:150px">
+        </div>
+
+    </div><hr>
+    <div class="row">
+        <div class="col-md-6">
+            <strong>Email Id :</strong>
+        </div>
+        <div class="col-md-6">
+            {{pro.user.email}}
+        </div>
+    </div><hr>
+     <div class="row">
+        <div class="col-md-6">
+            <strong>Contact :</strong>
+        </div>
+        <div class="col-md-6">
+            {{pro.contact}}
+        </div>
+     </div><hr>
+    <div class="row">
+        <div class="col-md-6">
+            <strong>Date of Birth :</strong>
+        </div>
+        <div class="col-md-6">
+            {{pro.dob}}
+        </div>
+    </div><hr>
+    <div class="row">
+        <div class="col-md-6">
+            <strong>Address :</strong>
+        </div>
+        <div class="col-md-6">
+            {{pro.address}}
+        </div>
+    </div><hr>
+
+
+    <h5>Additional Detail</h5><hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <strong>Aadhar number :</strong>
+        </div>
+        <div class="col-md-6">
+            {{pro.adhar_number}}
+        </div>
+    </div><hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <strong>PAN number :</strong>
+        </div>
+        <div class="col-md-6">
+            {{pro.pan_number}}
+        </div>
+    </div><hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <strong>Account number :</strong>
+        </div>
+        <div class="col-md-6">
+            {{pro.account_number}}
+        </div>
+    </div><hr>
+
+
+
+
+    {% if request.user.id == pro.user.id %}
+        <a href="{% url 'edit_profile' %}"><button class="btn btn-primary" style="width:100%;margin-bottom:5%">Edit Profile</button></a>
+    {% endif %}
+    <a href="https://form.jotform.com/231231759167458"><button class="btn btn-primary" style="width:100%;margin-bottom:5%">Give us Feedback</button></a>
+    <a href="https://forms.gle/ySYbTREhP1N1Kbvr9"><button class="btn btn-primary" style="width:100%;margin-bottom:5%">Return Product</button></a>
+</div>
+
+
+
+{% endblock %}

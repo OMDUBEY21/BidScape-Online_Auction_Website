@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html class="no-js">
+
+<!-- Mirrored from www.bidderboy.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 May 2022 15:11:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head id="Head1"><title>
+  Bidscape
+</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/plugins/font-awesome/css/font-awesome.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/vendor/venobox.css' %}" />
+<link rel="stylesheet" href="{% static 'css/rain.style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    .rules li:before {
+         background: none;
+    }
+    .about:after { /* this is the border */
+    content:"";
+    display:block;
+    width: 4em;
+    max-width:70%;
+    border-bottom: 0.1em solid #FF5A5F;
+    margin: 0.5em 0 0.5em 0;
+
+    }
+    </style>
+
+    <script src="../fast.eager.io/G9d_IagyjF.js' %}"></script>
+
+
+    <script src="{% static 'js/vendor/modernizr-2.8.2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/plugins/jquery/jquery.min.js' %}"></script>
+
+    <script src="{% static 'Scripts/jquery.signalR-2.2.0.min.js' %}" type="text/javascript"></script>
+    <script src="signalr/hubs" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function HidePopup() {
+            document.getElementById('popups').style.display = 'none';
+        };
+
+        function ResetTimer(ProId) {
+            var p = document.getElementById('dt' + ProId).textContent.split(",");
+            var dtnw = new Date(p[0], p[1], p[2], p[3], p[4], p[5], p[6]);
+            var today = new Date();
+            var diffMs = (dtnw - today);
+            var diffts = Math.round(diffMs / 1000) - parseInt(document.getElementById('timespan').value);
+
+            if (diffts > 0) {
+
+                $('#timer' + ProId).backward_timer({
+                    seconds: parseInt(diffts),
+                    on_tick: function (timer) {
+                        $('#dvzoom' + ProId).removeClass('big-animate');
+                        if ((timer.seconds_left % 2) == 0) {
+                            ResetTimer(ProId);
+                        };
+                        var color = (timer.seconds_left < 5)
+                            ? "#F82828"
+                            : "#3d4d65"
+                        timer.target.css('color', color)
+                    },
+                    on_exhausted: function (timer) {
+                        timer.target.text('Checking...')
+                    }
+                })
+                $('#timer' + ProId).backward_timer('start')
+            }
+
+        };
+
+        function skm_LockScreen() {
+            var lock = document.getElementById('skm_LockPane');
+            if (lock)
+                lock.className = 'LockOn';
+
+            lock.innerHTML = '<img id=Img1 src=images/Bidderboy_FullScreen.png alt=Loading... align=center class="spin" />';
+        }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-266970074-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-266970074-1');
+    </script>
+    </head>
+
+</head>
+
+<body class="home">
+    <div id="wrapper">
+        
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+    var theForm = document.forms['form1'];
+    if (!theForm) {
+        theForm = document.form1;
+    }
+    function __doPostBack(eventTarget, eventArgument) {
+        if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+            theForm.__EVENTTARGET.value = eventTarget;
+            theForm.__EVENTARGUMENT.value = eventArgument;
+            theForm.submit();
+        }
+    }
+</script>
+
+
+<script src="WebResourcedab1.js?d=pynGkmcFUV13He1Qd6_TZAJ4wcqxBv22FVF6_J3_KSZ60HDw51F8OuvwvV7QwG5aYEsgltpPHzxDJGZg-0V3tg2&amp;t=636725744526079030" type="text/javascript"></script>
+
+
+<script src="ScriptResource15c2.js?d=D9drwtSJ4hBA6O8UhT6CQoOh59R5Wk7IbKs_4TnqImaEsf22JCZ_RbLgs0UlZgzV4SlbSolCO1ag3e0UGh40nZf-fzEsESDXNDvO2PTwm-ErzEuuBZXt0k2ZykDeFPVaD6f6Pp5KhQjCEByhvo8T1xBcEMdOaGb7tpw9y8JmkcU1&amp;t=ffffffffacced670" type="text/javascript"></script>
+<script type="text/javascript">
+        if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+</script>
+
+<script src="ScriptResourcea914.js?d=JnUc-DEDOM5KzzVKtsL1tYGd0e-fin3kic0MMGh-v_pgenJQZb9kBrjOVJg0R0DtI2Kmrb27QoRAmZwjYtZh0VTzopr0OZRcFCEhfwJiyiVBvwftH8IEmGPB2Pz_G5eHYh1TbGWtkdJvoDj1MpY5vhYw1qegEuqc7KUB4aPsCjlF92utXF4FyZUEGo1pMTzz0&amp;t=ffffffffacced670" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="5k7WM/8m+UwYIy+UTLGv8enALuhQXy8vZm6hEkB74rC9/E0JF1eYv3oOFQNuosNjl1tCp7l6GZ4kE5VYhtTKtAnML62u3/SaSfe1Wmqe97R+4LbpqFKbTQOa9+4J5RpqcklIkCTT1EmyCHMBUKmKyZrK1jiBmZICQGcjlqROE19luRWP6AwsXEfMyoE/p7UbGY632iqvKbyyiXJuVoLAR2ozU/p2+BgMxcKMV3BFc9vEobNYr1jFDokl94pq8DH0ZBCTZ5MqdVSXsgVP3EPMAR2EQpzvCa4VwFT7A2RYEvLcHAq6GScV4QqA70rJbgSwWYKwDl3xCkccwBrRqNt3rm3C+Z8sF80dBwlpHNlsrxoQ01Sg5zTs/1Dcc52m4NREbhpMOFBLoLyoQfS6Wue1lp0zroHZetoGRItAhf19pKrmDoikW9zUALtzETAT2ZWiRWJZqNwisURd6bY9x5v9TnuxSV/asmOOCFx2G6M0NjSqdV4El7FRL4Jg11w1BIptTgvgc/DoE2m5UUi+JzdnBiZj5oTYxMMaUsHGI28CgIc21oqJq03llwuD92J7L+lc" />
+</div>
+            <input name="timespan" type="text" readonly="readonly" id="timespan" style="display: none;" />
+
+
+ {% if not request.user.is_authenticated %}
+{% else %}
+{% endif %}
+                        </div>
+                        <!--/.user-login-->
+                    </div>
+                    <!--/.wrap-->
+                </div>
+                <!--/.header-top-->
+
+                <div class="navigation-row">
+                    <!-- <a href="index.html" id="logo" title="Bidderboy">
+                        <img src="{% static 'images/logo.png' %}" alt="Bidderboy" style="width:150px;height:70px"></a>  -->
+                    <nav id="mainmenu">
+                        <div class="wrap">
+                            <ul>
+                                {% if request.user.is_authenticated and request.user.auctionuser_set.all.0.user_type == "Seller" %}
+                                 
+                                <li><a href="/" title="Auction-Home">Home</a></li>
+                                    <li><a href="/add_product" title="Add Bid">Add Bid</a></li>
+                                    <li><a href="/view_product" title="View Bid">My Product</a></li>
+                                    <li><a href="/meetwinners/" title="Meet Winners">Winners</a></li>
+                                    <li><a href="/all_product/" title="Hot Products">All Products</a></li>
+                                    <li><a href="/profile/{{request.user.id}}" title="My Profile">My Profile</a></li>
+                                    <li><a href="/logout" title="Logout">Log out</a></li>
+
+                                    <div class="user-login">
+                                        <p style="color:white">{{request.user.first_name}} ({{request.user.auctionuser_set.all.0.user_type}})</p>
+                                    </div>
+                                
+                                
+                                {% elif request.user.is_authenticated and request.user.auctionuser_set.all.0.user_type == "Bidder" %}
+                                
+                                    <li><a href="/" title="Auction-Home">Home</a></li>
+                                    <li><a href="/meetwinners/" title="Meet Winners">Winners</a></li>
+                                    
+                                    <li><a href="/all_product/" title="Hot Products">All Products</a></li>
+                                    <li><a href="/profile/{{request.user.id}}" title="My Profile">My Profile</a></li>
+                                    <li><a href="/logout" title="Logout">Log out</a></li>
+                                    <div class="user-login">
+                                    <p style="color:white">{{request.user.first_name}} ({{request.user.auctionuser_set.all.0.user_type}})</p>
+                                    </div>
+
+
+                                {% else %}
+
+
+                                    <li><a href="/" title="Auction-Home">Home</a></li>
+                                    <li><a href="/about" title="About Us">About Us</a></li>
+                                    <li><a href="/loginadmin" title="Login">Admin Login</a></li>
+                                    <li><a href="/login" title="Login">Login</a></li>                                    
+                                    <li><a href="/signup" title="Signup">Sign up</a></li>
+
+
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </nav>
+                    <!--/#mainmenu-->
+                </div>
+            </header>
+            <!--/#header-->
+
+           {% block body %}
+           {% endblock %}
+
+    
+                        <footer id="footer" class="footer-1" style="color: white;background-color: black;">
+                            <div class="main-footer widgets-dark typo-light">
+                            <div class="container">
+                            <div class="row">
+                            
+                              <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="widget subscribe no-box ">
+                            <h5 class="widget-title about" style="color:white;">ABOUT US<span></span></h5>
+                            <p>In Bidscape, you can find a wide range of items up for auction from sellers all over the world. Our platform offers a secure and convenient way to buy and sell goods in an online auction format.
+
+                            </p>
+                            </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-1">
+            </div>
+                              
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="widget no-box">
+                            <h5 class="widget-title about" style="color:white;">DEVELOPED BY<span></span></h5>
+                            <ul class="thumbnail-widget">
+                            <li>
+                            <div class="thumb-content">&nbsp;Vrushali</div>	
+                            </li>
+                            <li>
+                            <div class="thumb-content">&nbsp;Arpita</div>	
+                            </li>
+                            <li>
+                                <div class="thumb-content">&nbsp;Parmeet</div>	
+                            </li>
+                            <li>
+                                <div class="thumb-content">&nbsp;Akash</div>	
+                            </li>
+                            <li>
+                                <div class="thumb-content">&nbsp;Om</div>	
+                            </li>
+                            <li>
+                                <div class="thumb-content">&nbsp;Sourav</div>	
+                            </li>
+                            <li>
+                                <div class="thumb-content">&nbsp;Rohit</div>	
+                            </li>
+                            </ul>
+                            </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-1">
+            </div>
+                
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="widget no-box">
+                            <h5 class="widget-title about" style="color:white;">CONTACT US<span></span></h5>
+                                        <p>Ramrao Adik Institute of Technology, D.Y. Patil University,<br>Sector-7, Nerul,<br>Navi Mumbai - 400708.</p>
+                            </div>
+                            
+                            </div>
+                            </div>
+                            </div>
+                              <hr style="height:0.5px;color:gray;background-color:gray;">
+                            <div class="footer-copyright">
+                            <div class="container">
+                            <div class="row">
+                            <div class="col-md-12 text-center">
+                            <p>Copyright Bidscpae © 2023. All rights reserved.</p>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </footer>
+            <!--/.footer-->
+
+
+            <div id="UpdatePanel2">
+	
+                    <div id="popups" class="modal fade in" style="display:none;background-color:black;opacity:0.9;text-transform:uppercase;">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h5 class="text-center">
+                                        <label id="PopupError">
+                                            <span id="ltrPopUpError" style="text-transform: uppercase;">Error</span></label>
+                                    </h5>
+                                    <div class="text-center">
+                                        <a id="A2" onclick="HidePopup()" class="button bid-now" style="cursor: pointer">OK</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+</div>
+
+    </div>
+
+
+    <script src="{% static 'js/vendor/jquery.ezmark.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/venobox.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.matchHeight.js' %}"></script>
+    <script src="{% static 'js/general.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'Scripts/jquery-backward-timer.min.js' %}"></script>
+    <script>(function(i,s,o,g,r,a,m){    i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){        (i[r].q=i[r].q||[]).push(arguments)    },i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','../www.google-analytics.com/analytics.js','ga');ga('create', 'UA-32177004-1', 'auto');ga('send', 'pageview');</script>
+
+    <script>
+        {% for i in messages %}
+            alert('{{i}}');
+        {% endfor %}
+    </script>
+</body>
+
+<!-- Mirrored from www.bidderboy.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 May 2022 15:17:02 GMT -->
+</html>

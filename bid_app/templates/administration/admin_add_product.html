@@ -1,0 +1,124 @@
+{% extends 'administration/index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title"> Add Books Detail </h3>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">books-detail</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Add Books Detail</h4>
+              <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                      <div class="form-group col-md-6">
+                          <label for="inputEmail4">Book Name</label>
+                          <input type="text" class="form-control" placeholder="Enter Book Name" name="pname" id="inputEmail4" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                      <label for="exampleInputPassword1">Book Image</label>
+                      <input type="file" class="form-control" id="exampleInputPassword1" name="img" value="choose file" required>
+              </div>
+              </div>
+
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputEmail4">Book Author</label>
+                      <input type="text" class="form-control" placeholder="Enter Author Name" name="author" id="inputEmail4" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                  <label for="exampleInputPassword1">Book Format</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Book Format(Hardcover/softcover)" name="format" required>
+          </div>
+          </div>
+
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="inputEmail4">Book publisher</label>
+                  <input type="text" class="form-control" placeholder="Enter publisher name" name="publisher" id="inputEmail4" required>
+              </div>
+              <div class="form-group col-md-6">
+              <label for="exampleInputPassword1">Book Language</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Book Language" name="language" required>
+      </div>
+      </div>
+
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="inputEmail4">Book edition</label>
+              <input type="text" class="form-control" placeholder="Enter edition" name="edition" id="inputEmail4" required>
+          </div>
+          <div class="form-group col-md-6">
+          <label for="exampleInputPassword1">Total Pages</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Total page" name="page" required>
+  </div>
+  </div>
+
+
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                  <label for="inputState">Category</label>
+                  <select id="inputState" class="form-control" name="cat">
+                      {% for i in cat %}
+                    <option value="{{i.name}}">{{i.name}}</option>
+                      {% endfor %}
+                  </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Book Price</label>
+                  <input type="number" class="form-control" name="price" placeholder="Product Price" id="inputEmail4" required>
+                </div></div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputState">Condition</label>
+                    <select id="inputState" class="form-control" name="condition" required>
+                      <option value="">-----Select Book Condition-----</option>
+                      <option value="New">New</option>
+                      <option value="Good">Good</option>
+                      <option value="Fair">Fair</option>
+                      <option value="Poor">Poor</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="exampleFormControlTextarea1">Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="desc" rows="3" required></textarea>
+                  </div>
+                </div>
+                
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+    {% if error %}
+  <script>
+      alert('1 Book Uploaded Successfully');
+      window.location = "/admin_view_product";
+  </script>
+  {% endif %}
+{% endblock %}

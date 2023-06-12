@@ -1,0 +1,500 @@
+{% extends 'index.html' %}
+{% block body %}
+{% load custom_tags %}
+{% load static %}
+    <div id="main">
+        <div class="wrap">
+            <div id="primary" class="content-area one-column">
+                <div id="content" class="site-content">
+                    <div class="product-view">
+                        <div class="breadcrumb cf">
+                            <ul>
+                                <li><a href="index5a82.html" class="pathway">Home</a></li>
+                                <li><a href="index5a82.html" class="pathway">Auctions</a></li>
+                                <li class="active">
+                                    {{product.name}}</li>
+                            </ul>
+                        </div>
+                        <!--/.breadcrumb-->
+                        <div class="product-details cf">
+
+                            <div class="product-img-box">
+                                <img id="zoom-01" class="imgzoom" style="max-width: 500px;max-height: 500px;" src="{{product.images.url}}" data-zoom-image="{{product.images.url}}" />
+                                <div id="gal1" class="cf">
+                                    <input type="hidden" value="{{product.id}}" id="myproid">
+                                    <input type="hidden" value="{{product.status}}" id="pro_status">
+                                            <a data-image="{{product.images.url}}" rel="useZoom: 'zoom1', smallImage: '{{product.images.url}}' ">
+                                                
+                                            </a>
+                                        
+                                </div>
+                                <a href="#" class="bid-credit" style="display: none;">
+                                    <span id="Body_lblPerBidcredit1">12x</span></a>
+                            </div>
+                            <!--/.product-img-box-->
+
+                            <div class="product-bid">
+                                <h1 class="product-title">
+                                    {{product.name}}</h1>
+                                <!--/.product-title-->
+                                <div class="product-bid-row">
+                                    <div class="timer-box">
+                                        <div class="timer-box-content">
+                                            <div class="timer-block" style="background-color:white;padding:0">
+                                                <div id='dvzoom34488' class='big-animate'> <span id='34488' class='' style='font-size: 24px;' data-transition="customZoomTrans2">
+                                                {% if product.status == "live" %}
+                                                   <h4 style="color:black;margin-top:5px">Live Now</h4>
+                                                    <span id="live_time" style="font-size:20px;margin:0;color:green;font-weight:bold"></span>
+                                                    <input type="hidden" id="start_bid" value="{% getupcoming product.id product.endsession %}">
+                                                    <input type="hidden" id="end_bid" value="{% getendtime product.session product.endsession %}">
+                                                {% elif product.status == "closed" %}
+                                                        <span id="closed_time">Auction Closed</span>
+                                                {% else %}
+                                                    <span id="upcoming_time" style="font-size:20px;margin:0;color:green;font-weight:bold"></span>
+                                                    <input type="hidden" id="start_bid" value="{% getupcoming product.id product.endsession %}">
+                                                    <input type="hidden" id="end_bid" value="{% getendtime product.session product.endsession %}">
+                                                {% endif %}
+                                                </span>
+                                                <br />
+                                                <span class="bidder"><label id='UserName34488' style="margin-bottom: 0px;"></label></span></div>
+                                            </div>
+                                            <!--/.timer-block-->
+                                        </div>
+                                        <!--/.timer-box-content-->
+                                    </div>
+                                    <!--/.timer-box-->
+                                    <div class="bid-box" style="height: 125px;">
+                                        <div class="auction-price">
+                                            Auction price <span>&#8377;
+                                                <label id='final_price' style="margin-bottom: 0px;">
+                                                    {{product.final_price}}
+                                                </label>
+                                            </span>
+                                            <h5 class="card-title mb-1"><a href="https://rzp.io/i/cF9T3ft">Make Payment</h5>
+                                        </div>
+                                        <!--/.auction-price-->
+                                        <div class="bid-option-row">
+                                            <span class="bid-buttons">
+                                                <div id="Body_UpdatePanel1">
+    {% checkUserParticipate request.user product as isParticipate %}
+	{% if request.user.auctionuser_set.all.0.user_type == "Seller" %}
+            You are a seller user.
+    {% elif isParticipate %}
+                                                    You are a participants of this bidding.
+    {% else %}
+                                                        <a id="Body_lnkBuyNow" href="/make_participants/{{product.id}}" title="Buy Now Not Available" class="aspNetDisabled btn btn-primary" style="cursor:pointer;" onclick="return confirm('Are you sure to become participants of this bid?')">Click to Participate</a>
+                                                        
+     {% endif %}
+</div>
+                                            </span>
+                                            <span class="bid-now-button">
+                                                
+                                            </span>
+
+                                        </div>
+                                        <!--/.bid-option-row-->
+                                    </div>
+                                    <!--/.bid-box-->
+                                </div>
+                                <!--/.product-bid-row-->
+                                <div class="tab-data">
+                                    <ul class="tabnav cf">
+                                        <li><a href="#" data-rel="bidding-history"> History</a></li>
+                                        <li><a href="#" data-rel="auction-information"> Information</a></li>
+                                        <li><a href="#" data-rel="auction-participants">{% if request.user.auctionuser_set.all.0.user_type == "Seller" %}Participants{% else %}Seller Info{% endif %}</a></li>
+                                        <li><a href="#" data-rel="delivery-information">Delivery Info</a></li>
+                                    </ul>
+                                    <!--/.tabnav -->
+                                    <div class="tab-container">
+                                        
+                                        <!--/.tabcontent-->
+                                        <div class="tabcontent" id="bidding-history">
+                                            <div class="bidding-history">
+                                                <div>
+	{% if product.status == "pending" or product.status == "upcoming" %}
+    <table class="table table-bordered table-striped table-hover" cellspacing="0" rules="all" border="1" id="Body_grdBidLog" style="border-collapse:collapse;">
+		<tr>
+			<td colspan="3">
+                                                        <div class="text-center text-danger">
+                                                            <br />
+                                                            <i class="fa fa-4x fa-list"></i>
+                                                            <h3>Sorry, No Record Found.</h3>
+                                                        </div>
+                                                    </td>
+		</tr>
+	</table>
+
+    {% else %}
+
+    <table class="table table-bordered table-striped table-hover" cellspacing="0" rules="all" border="1" id="history_table" style="border-collapse:collapse;">
+		
+	</table>
+
+    {% if isParticipate and product.status == "live" %}
+    <form action="/startbidding/{{product.id}}" method="post">
+        {% csrf_token %}
+        <ul>
+
+            <li class="fields">
+                <div class="input-box" style="width:100%">
+                    <label id="auctprice" style="color:red"> {% if product.bid_type == "Auction" %}Value must be greater than or equal to {{product.min_price}}{% else %}Value must be less than or equal to {{product.min_price}}{% endif %} </label>
+                    <input name="new_price" {% if product.bid_type == "Auction" %}min="{{product.min_price}}"{% else %}max="{{product.min_price}}"{% endif %} type="number" id="myprice" class="form-control" placeholder="Enter Price" required/>
+                </div>
+            </li>
+            
+            <li class="actions">
+                <input type="submit" value="Submit" class="button btn-sm btn-login" />
+            </li>
+        </ul>
+    </form>
+
+    {% endif %}
+
+    {% endif %}
+
+
+
+</div>
+                                            </div>
+                                            <!--/.bidding-history-->
+                                        </div>
+
+
+
+
+                                        <div class="tabcontent" id="auction-information">
+                                            <div class="auction-info">
+                                                <ul>
+                                                    <li>
+                                                        <span>
+                                                            <span id="Body_lblAuctionID">{{product.id}}</span></span>
+                                                        Auction ID
+                                                    </li>
+                                                    <li>
+                                                        <span>Rs&nbsp;
+                                                            <span id="Body_lblPrice"> {{product.min_price}}.00</span></span>
+                                                        Price
+                                                    </li>
+                                                    <li>
+                                                        <span>Rs&nbsp;
+                                                            <span id="Body_lblShipping"> {{product.final_price}}.00</span></span>
+                                                        Final Price
+                                                    </li>
+                                                    <li>
+                                                        <span>
+                                                            <span id="Body_lblBidReset">{{product.session}}</span></span>
+                                                        Bid Start Time
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <span>
+                                                            <span id="Body_lblAuctionType">{{product.bid_type}}</span></span>
+                                                        Auction Type
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!--/.auction-info-->
+                                        </div>
+
+
+
+                                        <div class="tabcontent" id="auction-participants">
+                                            {% if request.user.auctionuser_set.all.0.user_type == "Seller" %}
+                                            
+                                            
+                                            <table class="table table-bordered table-striped table-hover" cellspacing="0" rules="all" border="1" id="Body_grdBidLog" style="border-collapse:collapse;">
+                                                <tr class="tableheaderstyle">
+                                                    <th scope="col">Userid</th><th scope="col">Image</th><th scope="col">Name</th><th scope="col">Status</th>
+                                                </tr>
+                                            {% for i in product.participants_set.all %}
+                                                <tr {% if i.user.id == product.winner.id %}style="background-color:green;color:white"{% endif %}>
+                                                    <td>{{i.user.id}}</td><td><img src="{{i.user.auctionuser_set.all.0.image.url}}" style="width:70px"></td><td>{{i.user.first_name}}</td>
+                                                    <td>{% if i.user.id == product.winner.id %}Winner{% else %}<span style="color:red">X</span>{% endif %}</td>
+                                                </tr>
+                                                {% empty %}
+                                                <tr>
+                                                    <td colspan="3">No record found</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </table>
+                                            
+                                            {% else %}
+                                            <div class="auction-info">
+                                                <ul>
+                                                    <li>
+                                                        <span>
+                                                            <span id="Body_lblPerBidcredit">
+                                                                <img src="{{product.user.auctionuser_set.all.0.image.url}}" style="width:70px"></span></span>
+                                                        Image
+                                                    </li>
+                                                    <li>
+                                                        <span>
+                                                            <span id="Body_lblAuctionID">{{product.user.id}}</span></span>
+                                                        User ID
+                                                    </li>
+                                                    <li>
+                                                        <span>&nbsp;
+                                                            <span id="Body_lblPrice"> {{product.user.first_name}}</span></span>
+                                                        Name
+                                                    </li>
+                                                    <li>
+                                                        <span>+91&nbsp;
+                                                            <span id="Body_lblShipping"> {{product.user.auctionuser_set.all.0.contact}}</span></span>
+                                                        Contact
+                                                    </li>
+                                                    <li>
+                                                        <span>
+                                                            <span id="Body_lblBidReset">{{product.user.auctionuser_set.all.0.address}}</span></span>
+                                                        Address
+                                                    </li>
+                                                    
+                                                    
+                                                </ul>
+                                            </div>
+                                            {% endif %}
+                                            <!--/.auction-info-->
+                                        </div>
+
+
+
+                                        <!--/.tabcontent -->
+                                        <div class="tabcontent" id="delivery-information">
+                                            <p>
+                                                Delivered in 8-10 days
+                                            </p>
+                                        </div>
+                                        <!--/.tabcontent -->
+                                    </div>
+                                    <!--/.tab-container -->
+                                </div>
+                                <!--/.tab-data-->
+                            </div>
+                            <!--/.product-bid-->
+                        </div>
+                        <!--/.product-details-->
+                        <div class="product-overview">
+                            <h2>Product Overview</h2>
+                            <h3>
+                                <span id="Body_ltrProductName1">{{product.name}}</span></h3>
+                            <div style="margin-left: 20px;">
+                                <div class="table-responsive">
+                                        <p><strong>Specifications</strong></p>
+
+<p>&nbsp;</p>
+
+<table style="width:747.662px">
+	<tbody>
+
+		{% for i,j in product.parameter|change_dict %}
+		<tr>
+			<td style="vertical-align:top; width:186.913px">{{i}}</td>
+			<td style="vertical-align:top; width:560.737px">
+			<ul>
+				<li>{{j}}</li>
+			</ul>
+			</td>
+		</tr>
+		{% endfor %}
+
+	</tbody>
+</table>
+
+
+<p><strong>Description</strong></p>
+
+<p>&nbsp;</p>
+
+<table style="width:747.662px">
+	<tbody>
+		<tr>
+			<td style="vertical-align:top; width:186.913px">{{product.description}}</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.product-overview-->
+                    </div>
+                    <!--/.product-view-->
+                </div>
+                <!--/#content-->
+            </div>
+            <!--/#primary-->
+        </div>
+    </div>
+    <!--/#main -->
+
+    <div id="Body_UpdatePanel2">
+	
+            <div id="skm_LockPane" class="LockOff">
+            </div>
+            <div id="Body_popups" class="modal fade in" style="display: none; background-color: black; opacity: 0.9; text-transform: uppercase;">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h4 class="text-center">
+                                <label id="PopupError">
+                                    </label>
+                            </h4>
+                            <div class="text-center">
+                                <a id="A2" onclick="HidePopup()" class="button bid-now" style="cursor: pointer;">OK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Body_pnlEdit" class="modalPopup col-md-6" style="display: none;">
+		
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px;">
+                        <h2 class="modal-title">Set Auto Bid
+                        </h2>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-lg-5">
+                                    Maximum bid count<span class="text-danger"> *</span>
+                                </label>
+                                <div class="col-lg-5">
+                                    <input name="ctl00$Body$txtMaxBidCredit" type="text" id="Body_txtMaxBidCredit" placeholder="Max Bid Count" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-lg-5">
+                                    Activate at Rs<span class="text-danger"> *</span>
+                                </label>
+                                <div class="col-lg-5">
+                                    <input name="ctl00$Body$txtStartRs" type="text" id="Body_txtStartRs" placeholder="Activate at Rs" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="padding: 15px;">
+                        <a id="Body_LinkButton1" class="btn btn-primary" href="javascript:__doPostBack(&#39;ctl00$Body$LinkButton1&#39;,&#39;&#39;)" style="font-size: 17px;"><i class="fa fa-close"></i>&nbsp;Cancel</a>
+                        <a onclick="skm_LockScreen();" id="Body_btnSave" class="btn btn-success " href="javascript:__doPostBack(&#39;ctl00$Body$btnSave&#39;,&#39;&#39;)" style="font-size: 17px;"><i class="fa fa-save"></i>&nbsp;Save</a>
+                    </div>
+                </div>
+            
+	</div>
+            
+            <a id="Body_lnkFake1" href="javascript:__doPostBack(&#39;ctl00$Body$lnkFake1&#39;,&#39;&#39;)"></a>
+        
+</div>
+
+<script src="{% static 'js/vendor/jquery.elevatezoom.js' %}"></script>
+<script>
+    setInterval(function(){
+        var start = document.getElementById('start_bid').value;
+        
+        var status = document.getElementById('pro_status').value;
+        mydate = new Date(start).getTime() + (1000*60*60);
+        diftime = mydate - new Date().getTime();
+        var days = Math.floor(diftime / (1000*60*60*24));
+        var hours   =  Math.floor((diftime % (1000*60*60*24)) / (1000*60*60));
+        var minutes =  Math.floor((diftime % (1000*60*60)) / (1000*60));
+        var seconds =  Math.floor((diftime %  (1000*60)) / 1000);
+        document.getElementById('live_time').innerHTML = hours+":"+minutes+":"+seconds;
+
+        if(days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0 && status=="live"){
+            var xhttp;
+            var bid_id = document.getElementById('myproid').value;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    data = JSON.parse(this.responseText);
+                    console.log(data);
+                    alert("Winner for this product has been announced.")
+                    window.location = data.myurl;
+                }
+            };
+            xhttp.open("GET", "/changelivetocomplete/"+bid_id, true);
+            xhttp.send();
+        }
+
+    },1000);
+
+
+    setInterval(function(){
+        var start = document.getElementById('start_bid').value;
+        var status = document.getElementById('pro_status').value;
+        mydate = new Date(start).getTime();
+        diftime = mydate - new Date().getTime();
+        var days = Math.floor(diftime / (1000*60*60*24));
+        var hours   =  Math.floor((diftime % (1000*60*60*24)) / (1000*60*60));
+        var minutes =  Math.floor((diftime % (1000*60*60)) / (1000*60));
+        var seconds =  Math.floor((diftime %  (1000*60)) / 1000);
+        document.getElementById('upcoming_time').innerHTML = "Start in "+days+"d,"+hours+":"+minutes+":"+seconds;
+        if(days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0 && status=="upcoming"){
+            var xhttp;
+            var bid_id = document.getElementById('myproid').value;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    data = JSON.parse(this.responseText);
+                    if(status=="upcoming"){
+                        alert("Now Product is live for bidding.");
+                        window.alert = function(){};
+                        window.location = "{{request.path}}";
+                    }
+                    
+                }
+            };
+            xhttp.open("GET", "/changeupcomingtolive/"+bid_id, true);
+            xhttp.send();
+        }
+    
+    },1000);
+
+
+    setInterval(function(){
+        var xhttp;    
+        var bid_id = document.getElementById('myproid').value;
+        var bid_type = "{{product.bid_type}}";
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                data = JSON.parse(this.responseText);
+                var status = document.getElementById('pro_status').value;
+                if(data.winner_status && status=="live"){
+                    alert("Bidding gaping is more than 3 minutes,So Winner is announced.");
+                    window.location = "{{request.path}}";
+                }
+                var abc = `<tr class="tableheaderstyle">
+                            <th scope="col">Price</th><th scope="col">Bid Time</th><th scope="col">User</th>
+                        </tr>`;
+
+                for(var i=0;i<data.name.length;i++){
+                    abc += `<tr>
+                            <td>₹ `+ data.new_price[i] +`</td><td>`+ data.time[i] +`</td><td>`+ data.name[i] +`</td>
+                        </tr>`;
+                }
+                document.getElementById("history_table").innerHTML = abc;
+                
+                
+                if (bid_type == "Auction"){
+                    document.getElementById("myprice").min = data.maximum;
+                    document.getElementById("final_price").innerHTML = data.maximum - {{product.interval_price}};
+                    document.getElementById("auctprice").innerHTML = "Value must be greater than or equal to " + data.maximum;
+                }
+                else{
+                    document.getElementById("myprice").max = data.maximum;
+                    document.getElementById("final_price").innerHTML = data.maximum + {{product.interval_price}};
+                    document.getElementById("auctprice").innerHTML = "Value must be less than or equal to " + data.maximum;
+                }
+                
+                
+            }
+        };
+        xhttp.open("GET", "/getbidhistory/"+bid_id, true);
+        xhttp.send();
+    },3000);
+    
+</script>
+{% endblock %}

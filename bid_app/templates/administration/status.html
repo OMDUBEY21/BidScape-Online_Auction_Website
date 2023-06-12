@@ -1,0 +1,52 @@
+{% extends 'administration/index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title"> Change Status </h3>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Change Status</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Change Status</h4>
+              <form class="forms-sample" action="" method="post">
+                  {% csrf_token %}
+                  <div class="form-group col-md-12">
+                    <label for="exampleInputEmail1">Booking Id</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="book" value="{{book.booking_id}}">
+                  </div>
+                  <div class="form-group col-md-12">
+                      <label for="inputState">Status</label>
+                      <select id="inputState" class="form-control" name="status">
+                          {% for i in stat %}
+                        <option value="{{i.name}}">{{i.name}}</option>
+                          {% endfor %}
+                      </select>
+                    </div>
+                
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-dark">Cancel</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+{% endblock %}

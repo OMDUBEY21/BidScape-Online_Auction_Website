@@ -1,0 +1,276 @@
+
+.ajax__calendar .ajax__calendar_container
+{
+    z-index: 1;
+}
+
+.spin
+{
+    animation: spin 0.8s linear 0s infinite normal;
+    -moz-animation: 0.8s linear 0s normal none infinite spin;
+    -webkit-animation: spin 0.8s linear 0s infinite normal;
+    -0-animation: spin 0.8s linear 0s infinite normal;
+    pointer-events: none;
+}
+
+    .spin:hover
+    {
+        animation: spin 1s linear 0s infinite reverse;
+        -moz-animation: 1s linear 0s reverse none infinite spin;
+        -webkit-animation: spin 1s linear 0s infinite reverse;
+        -0-animation: spin 15s linear 0s infinite reverse;
+    }
+
+.load-button
+{
+    background-image: -webkit-linear-gradient(135deg,rgba(255,255,255,0.7) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.7) 50%,rgba(255,255,255,0.7) 75%,transparent 75%,transparent);
+    background-image: -moz-linear-gradient(135deg,rgba(255,255,255,0.7) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.7) 50%,rgba(255,255,255,0.7) 75%,transparent 75%,transparent);
+    background-image: linear-gradient(135deg,rgba(255,255,255,0.7) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.7) 50%,rgba(255,255,255,0.7) 75%,transparent 75%,transparent);
+    -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    -webkit-background-size: 50px 50px;
+    background-size: 50px 50px;
+    -moz-animation: animate-stripes 3s infinite linear;
+    -webkit-animation: animate-stripes 3s infinite linear;
+    -o-animation: animate-stripes 3s infinite linear;
+    -ms-animation: animate-stripes 3s infinite linear;
+    animation: animate-stripes 3s infinite linear;
+    cursor: default;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.big-animate
+{
+    animation-duration: .3s;
+    animation-name: fadeAndScale;
+    animation-timing-function: cubic-bezier(.71,.55,.62,1.57);
+}
+
+/*.star
+{
+    background:url('../images/star.png') no-repeat;
+    float: right;
+    height: 21px;
+    margin: 3px 31px 3px 2px;
+    width: 21px;
+}
+
+.bid-creadit {
+    font-weight: 900;
+    font-size: 22px;
+    margin: 5px 10px;
+    position: absolute;
+    border-radius: 3px;
+    right: 0;
+    top: 400px;
+    width: 80px;
+    z-index: 10;
+}
+
+.bid-product-title {
+    padding: 0px;
+    margin: 0px 0 5px;
+    font-size: 16px;
+}*/
+
+@keyframes fadeAndScale
+{
+    from
+    {
+        opacity: 0;
+        transform: scale(2, 2);
+    }
+
+    to
+    {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes animate-stripes
+{
+    0%
+    {
+        background-position: 0 0;
+    }
+
+    100%
+    {
+        background-position: 50px 0;
+    }
+}
+
+@-webkit-keyframes animate-stripes
+{
+    0%
+    {
+        background-position: 0 0;
+    }
+
+    100%
+    {
+        background-position: 50px 0;
+    }
+}
+
+@-moz-keyframes animate-stripes
+{
+    0%
+    {
+        background-position: 0 0;
+    }
+
+    100%
+    {
+        background-position: 50px 0;
+    }
+}
+
+@-o-keyframes animate-stripes
+{
+    0%;
+    {
+        background-position: 0 0;
+    }
+
+    100%
+    {
+        background-position: 50px 0;
+    }
+}
+
+
+@keyframes spin
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin
+{
+    0%
+    {
+        -moz-transform: rotate(0deg);
+    }
+
+    100%
+    {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin
+{
+    0%
+    {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100%
+    {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes spin
+{
+    0%
+    {
+        -o-transform: rotate(0deg);
+    }
+
+    100%
+    {
+        -o-transform: rotate(360deg);
+    }
+}
+
+
+
+.modalBackground
+{
+    background-color: Black;
+    filter: alpha(opacity=90);
+    opacity: 0.8;
+}
+
+.modalPopup
+{
+    /* background-color: #fff; border-width: 3px; 	border-style: solid; 	border-color: black;*/
+    padding-top: 10px;
+    color: Black;
+    overflow-y: auto;
+}
+
+.pagingstyle table tbody tr td
+{
+    padding: 0;
+}
+
+.pagingstyle td span
+{
+    background-color: #FF9948;
+    border-color: #E67E22;
+    color: #fff;
+    border: 1px solid #EFF2F7;
+    float: left;
+    line-height: 1.42857;
+    margin-left: 1px;
+    padding: 6px 12px;
+    position: relative;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.pagingstyle td a
+{
+    border: 1px solid #EFF2F7;
+    float: left;
+    line-height: 1.42857;
+    margin-left: 1px;
+    padding: 6px 12px;
+    position: relative;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+    .pagingstyle td a:hover
+    {
+        background-color: #FF9948;
+        border-color: #E67E22;
+        color: #fff;
+    }
+
+.LockOff
+{
+    display: none;
+    visibility: hidden;
+}
+
+.LockOn
+{
+    display: block;
+    visibility: visible;
+    position: fixed;
+    z-index: 2000000;
+    top: 0px;
+    left: 0px;
+    width: 105%;
+    height: 105%;
+    background-color: Black;
+    text-align: center;
+    padding-top: 20%;
+    filter: alpha(opacity=75);
+    opacity: 0.75;
+}

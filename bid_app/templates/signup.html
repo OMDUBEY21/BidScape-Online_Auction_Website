@@ -1,0 +1,196 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+    .cont{
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .one{
+        width:100%;
+        flex-basis: 50%;
+        flex-grow: 1;
+        background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(/static/images/netflix.png);
+        background-size: cover;
+        background-position: center;
+        min-height: inherit;
+        padding: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #fff;
+    }
+    .two{
+        flex-basis: 50%;
+        flex-grow: 1;
+        padding: 50px 80px;
+    }
+    .logo{
+        width: 200px;
+        margin-bottom: 30px;
+    }
+
+    .one ul{
+        list-style: none;
+    }
+
+    .one ul li{
+        display: flex;
+        align-items: center;
+        margin: 12px 0;
+    }
+
+    .one ul li img{
+        width: 20px;
+        margin-right: 15px;
+    }
+
+    h2{
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+        margin-top: -80px;
+    }
+    h2 img{
+        width: 26px;
+        margin-right: 10px;
+    }
+    form{
+        width: 400px;
+        color: #333;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    label{
+        display: block;
+        padding: 25px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        box-shadow: 0 0 20px 5px rgba(0,0,0,0.15);
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 500;
+        color: #999;
+        cursor: pointer;
+    }
+    label span{
+        flex: 1;
+        margin-left: 15px;
+        font-size: 34px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    label span small{
+        font-size: 18px;
+    }
+    input[type="radio"]:checked + span{
+        color: #ff004f;
+    }
+
+    input[type="text"],input[type="email"],input[type="password"],input[type="file"],input[type="date"],textarea{
+        height:40px;
+        width: 200px;
+        background: transparent;
+        padding: 7px 10px;
+        outline: none;
+        border: 1px solid #333;
+        border-radius: 4px;
+        margin: 12px 0;
+    }
+
+    form button{
+        background: #ff004f;
+        color: #fff;
+        font-size: 16px;
+        padding: 10px 30px;
+        margin: 20px 0;
+        border: 0;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    form button:hover{
+        transform: translateY(-5px);
+    }
+   </style>
+
+<div class="cont">
+    <div class="one">
+      <h1 style="color:white;">BidScape</h1>
+        <ul>
+            <li><img src="/static/images/icon.png">Convenience. Exposure.</li>
+            <li><img src="/static/images/icon.png">Auction anywhere.</li>
+            <li><img src="/static/images/icon.png">Instant engagement from marketing.</li>
+            <li><img src="/static/images/icon.png">Less onsite activity.</li>
+            <li><img src="/static/images/icon.png">Longer bidding window.</li>
+            <li><img src="/static/images/icon.png">Giant market. Larger Reach.</li>
+            <li><img src="/static/images/icon.png">Easy shipping.</li>
+            <li><img src="/static/images/icon.png">Instant Trust.</li>
+
+        </ul>
+    </div>
+    <div class="two">
+        <div id="skm_LockPane" class="LockOff">
+        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <ul class="formlist">
+                <li class="fields">
+                    <div class="input-box">
+                        <input name="fname" type="text" id="txtFirstName" class="textbox"  size="50" placeholder="First Name" />
+                    </div>
+                    <div class="input-box">
+                        <input name="lname" type="text" id="txtLastName" class="textbox" placeholder="Last Name" />
+                    </div>
+       
+                    <div class="input-box">
+                        <input name="uname" type="text" id="txtSUserName" class="textbox" placeholder="Choose Username" />
+                    </div>
+                    <div class="input-box">
+                        <input name="pwd" type="password" id="txtSPassword" class="textbox" placeholder="Choose Password" />
+                    </div>
+          
+                    <div class="input-box">
+                        <input name="email" type="text" id="txtEmail" class="textbox" placeholder="Email ID" />
+                    </div>
+                    <div class="input-box">
+                        <input name="contact" type="text" maxlength="10" id="txtMobile" class="textbox" placeholder="Mobile" />
+                    </div>
+                    <div class="input-box">
+                        <input name="image" type="file" id="txtEmail" class="form-control" placeholder="Image"/>
+                    </div>
+                    <div class="input-box">
+                        <input name="dob" type="date" id="txtEmail" class="form-control" placeholder="Date of Birth" />
+                    </div>
+
+                    <div class="input-box">
+                        <input name="reg" type="radio" id="txtMobile" class="form-check" value="Bidder"/> Bidder
+                        <input name="reg" type="radio" id="txtMobile" class="form-check" value="Seller"/> Auctioneer
+                    </div>
+                    <div class="input-box">
+                        <textarea name="add" id="txtMobile" class="textbox" placeholder="Address"></textarea>
+                    </div>
+                    <input id="chkChecked" type="checkbox" name="chkChecked" />I accept the Terms and Conditions and the Privacy Policy of BidScape
+                    <br>
+                    <li class="actions">
+
+                    <button type="submit">Submit</button> 
+                       </li>
+            </ul>
+
+        </form>
+
+    </div>
+    </div>
+
+{% endblock %}

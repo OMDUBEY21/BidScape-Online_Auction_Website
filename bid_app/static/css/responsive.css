@@ -1,0 +1,324 @@
+
+@media only screen and (min-width: 768px) {
+	.user-login form, #mainmenu ul, .account-bar > ul { display:block !important; }
+	.hotproduct-bid-box{margin: 0px 0 0 280px;}
+	.hotproduct-timer-box{width:260px;}
+}
+@media only screen and (min-width: 1001px) and (max-width: 1279px) {
+	
+	.women-image { -moz-transform:scale(0.8); -webkit-transform:scale(0.8); -ms-transform:scale(0.8); transform:scale(0.8); bottom:-50px; }
+	.win-big { margin-left:80px; padding-left:165px; }
+	.zoomWindow { width:100% !important; height:390px !important; }
+	.hotproduct-bid-box{margin: 0px 0 0 280px;}
+	.hotproduct-timer-box{width:260px;}
+	
+}
+@media only screen and (min-width: 1001px) and (max-width: 1200px) {
+	
+	.wrap { width:auto; padding:0 15px; }
+	img{ max-width: 100%; width:auto; height:auto; }
+	.women-image { left:-20px; }
+	.banner-content { padding:25px 15px 18px 0; }
+	.signup-form { margin:40px 0; }
+	.discount span { font-size:21px; }
+	.discount { font-size:15px; margin:0 0 0 210px; }
+	.win-big { padding:0 0 0 128px; font-size:40px; }
+	.win-big span { font-size:70px; }
+	.infographic { -moz-transform:scale(0.85); -webkit-transform:scale(0.85); -ms-transform:scale(0.85); transform:scale(0.85); margin:0 -40px 35px 0; }
+	.signup-form .formlist li.actions .button, .signup-form .formlist li.actions input[type="submit"] { font-size:15px; }
+	.fmenu li { padding:0 15px; }
+	.fmenu ul { margin:0 -15px; }
+	#logo img { width:272px; height:72px; }
+	.user-login { margin:10px 0 0; }
+	.bid-features li { font-size:10px 15px; }
+	.bid-features li span { font-size:18px; }
+	.bid-title h4 { font-size:34px; }
+	.product { margin:18px 0 0; max-width:45%; }
+	.service-box h4 { font-size:35px; }
+	.instruction-box h5 span br { display:none; }
+	.instruction-box .col { padding:0 20px 10px; }
+	.rules li { font-size:15px; }
+	.rules li:before { top:2px; }
+	.auction-block h4 { font-size:20px; }
+	.upcoming-auctions h4, .closed-auctions h4 { font-size:17px; }
+	.account-bar { margin:18px 0 0; }
+	.bid-option-row .button.bid-now { min-width:inherit; font-size:20px; }
+	.zoomWindow { top:0 !important; margin-left:0; left:0 !important; }
+	.zoomContainer { z-index:6; }
+	.hotproduct-bid-box{margin: 0px 0 0 280px;}
+	.hotproduct-timer-box{width:260px;}
+}
+@media only screen and (max-width:1000px) {
+	body { min-width:320px; }
+	.wrap { width:auto; padding:0 15px; }
+	img{ max-width: 100%; width:auto; height:auto; }
+	
+	#logo { float:none; text-align:center; }
+	.user-login { float:none; }
+	.user-login ul { display:table; margin:auto; }
+	.user-login ul:after, .bid-features li:after { content:''; display:table; clear:both; }
+	.banner-content { float:none; width:auto; position:relative; padding:0; }
+	.main-banner { padding:20px 0; }
+	.infographic { margin:0 0 35px; }
+	.women-image { left:0; }
+	.win-big { margin:0 0 20px 120px; }
+	.discount { margin:0 0 0 290px; }
+	.signup-form { float:none; width:auto; margin:20px 0 0; }
+	.welcome-section p br { display:none; }
+	.video-contain { padding-left:20px; }
+	.offer span { font-size:30px; }
+	/*.offer span:before { height:76px; margin-top:-38px; }*/
+	.bid-features { margin-left:15%; }
+	.bid-title h4 { font-size:28px; }
+	.bid-title { width:15%; border-right:1px solid #589572; }
+	.bid-features ul { padding:15px 0; }
+	.bid-features li { width:auto; float:none; border:0; padding:0; margin:15px 0 0; }
+	.bid-features li:first-child { margin:0; }
+	.bid-features li span { float:left; width:50%; padding:0 15px; font-size:18px; }
+	.bid-features li span:before { margin:0 15px 0 0; }
+	.mobile-group { margin-top:-150px; }
+	.bidding-options { margin-top:190px; }
+	.auction-section .col { width:50%; padding:12px; }
+	.auction-section .cols { margin:-12px; }
+	.service-box h4 { font-size:28px; }
+	.product { max-width:40%; }
+	.fmenu { margin:0 0 12px; }
+	.social { margin:0 0 16px; }
+	.fmenu li { padding:5px 12px; }
+	.fmenu ul { margin:0 -12px; }
+	.copyright-section, .footer-menu li a { font-size:12px; }
+	.footer-menu li { padding:0 8px; }
+	.footer-menu ul { margin:0 -8px; }
+	.footer-menu li:before { height:10px; margin-top:-4px; }
+	.logos figure { margin-right:25px; }
+	.logos figure:last-child { margin:0; }
+	#mainmenu li a { font-size:16px; padding:0 15px; }
+	#mainmenu .wrap { padding:0; }
+	#mainmenu li:first-child { border:0; }
+	
+	.account-bar { float:none; display:table; margin:10px auto 0; }
+	.buttonset .col a { margin-bottom:10px; }
+	.product-img-box { float:none; width:auto; margin:0 0 25px; }
+	.bid-option-row .button.bid-now { min-width:inherit; font-size:20px; }
+	.product-bid { float:none; width:auto; padding:0; }
+	.product-group .mobile-group { margin-top:-100px; }
+	.bidding-options.product-group { margin-top:130px; }
+	.instruction-box { padding-top:44px; }
+	.youtube-video a:before { width:91px; }
+	.zoomWindow { top:0 !important; margin-left:0; left:0 !important; }
+	.zoomContainer { z-index:6; }
+	
+	.hotproduct-bid-box{margin: 0px 0 0 280px;}
+	.hotproduct-timer-box{width:260px;}
+} 
+/*==========================================================================================================*/
+@media only screen and (max-width: 767px) {
+	
+	h1, h2 { font-size:38px; }
+	.welcome-section { font-size:16px; }
+	#main { padding-top:25px; }
+	.welcome-section { margin:0 0 35px; }
+	.offer span { font-size:21px; }
+	.video-contain { padding-left:15px; }
+	.offer span em { padding:0 0 0 15px; }
+	/*.offer span:before { height:50px; margin-top:-25px; }*/
+	.youtube-video a:before { -moz-transform:scale(0.7); -webkit-transform:scale(0.7); -ms-transform:scale(0.7); transform:scale(0.7); }
+	.mobile-group { margin-top:-120px; }
+	.bidding-options { margin-top:160px; padding-bottom:30px; }
+	.bid-features { margin:0; }
+	.bid-title { position:static; width:auto; border-bottom:1px solid #589572; border-right:0; padding:10px 0; }
+	h3 { font-size:34px; }
+	.live-auctions { padding:25px 0; }
+	.auction-section h3 { margin:0 0 25px; }
+	.auction-block h4 { font-size:20px; }
+	.upcoming-auctions h4, .closed-auctions h4 { font-size:18px; }
+	.live-auctions .col { float:none; width:auto; }
+	.auction-section { margin:0 0 20px; }
+	.instruction-box .col { float:none; width:auto; padding-bottom:0; border:0; }
+	.instruction-box .col:first-child { border-bottom:1px solid #ccc; padding-bottom:20px; margin-bottom:20px; } 
+	.instruction-box { padding:25px 0 0; }
+	.copyright-section { text-align:center; }
+	.copyright { float:none; }
+	.footer-menu { float:none; margin:7px 0 0; } 
+	.copyright-section { padding:10px 0; }
+	.service-box { padding:25px 0; }
+	.product { max-width:70%; float:none; margin:auto; }
+	.service-box h4 { margin:0 0 30px; text-align:center; }
+	.signup-form .formlist li.actions .button, .signup-form .formlist li.actions input[type="submit"] { float:none; width:auto; display:block; width:100%; text-indent:-15px; font-size:18px; }
+	.signup-form .actions > span.or { display:block; top:1px; font-size:18px; margin:5px 0; float:none; width:auto; }
+	.user-login .formlist li.actions { clear:both; margin:10px 0 0; width:100%; }
+	.user-login .button.btn-login { float:left; width:47%; }
+	.user-login > form { display:none; } 
+	#menu, #login-trigger, #account-trigger { display:block; }
+	.user-login { margin:0 -15px; }
+	.header-top { padding-bottom:0; }
+	.user-login ul { display:block; padding:15px 5px; margin:0; }
+	.user-login .formlist li { width:50%; float:left; margin:0; padding:0 2%; }
+	.user-login .formlist li input[type="text"], .user-login .formlist li input[type="password"] { width:100%; }
+	.user-login .button.btn-xs, .user-login .formlist li.actions input[type="submit"] { font-size:17px; font-weight:500; width:47%; text-align:center; float:left; }
+	.user-login a.button.btn-xs { float:right; }
+	.user-login .actions span { display:inline; float:left; width:6%; text-align:center; margin:8px 0 0 -1px; }
+	.signup-form h2 { font-size:46px; }
+	.women-image { -moz-transform:scale(0.8); -webkit-transform:scale(0.8); -ms-transform:scale(0.8); transform:scale(0.8); -moz-transform-origin:0 100%; -webkit-transform-origin:0 100%; -ms-transform-origin:0 100%; transform-origin:0 100%; }
+	.main-banner { padding:10px 0 20px; }
+	.win-big { padding:0 0 0 110px; }
+	.discount { margin:0 0 0 230px; font-size:15px; }
+	.discount span { font-size:22px; }
+	#mainmenu ul { display:none; position:absolute; top:100%; left:0; width:100%; background:#3d4d65; }
+	#mainmenu ul li { float:none; border-top:1px solid #5b6a7f !important; }
+	#mainmenu ul li a { line-height:normal; padding:8px 15px; }
+	#mainmenu { float:left; background:none; }
+	.navigation-row { background:#3d4d65; padding:0 15px; position:relative; }
+	
+	.account-bar ul { display:none; padding:15px; position:absolute; left:0; top:100%; width:100%; background:#fff; background:#f2f2f2; border-bottom:2px solid #ddd; }
+	#account-trigger { background:none; color:#fff; }
+	#account-trigger.menuopen .menulines { background:none; }
+	.account-bar > ul > li { margin-bottom:12px; }
+	.account-bar > ul > li.my-account { margin:0; float:none; width:auto; clear:both; }
+	
+	.cols4 .col { width:50%; }
+	.tab-data { margin-bottom:20px; }
+	.cols2 .col { float:none; width:auto; }
+	.navigation-row:after { content:''; display:table; clear:both; }
+	.account-bar { float:right; display:block; margin:0; }
+	#menu, #account-trigger { padding:0; }
+	.account-bar ul.user-box { padding:0; position:static; background:#fff; box-shadow:none; border:1px solid #ddd; border-top:0; }
+	#logo { margin-bottom:20px; }
+	.tabnav li a { font-size:16px; }
+	.product-family h3 { font-size:32px; }
+	.product-group .mobile-group { margin-top:-75px; }
+	.bidding-options.product-group { margin-top:100px; }
+	.breadcrumb { margin-top:-10px; }
+	.rules li { font-size:15px; }
+	.rules li:before { top:2px; }
+	
+	
+}
+/*==========================================================================================================*/
+/* only iphone4 landscape & Potriat 300 by 480*/
+@media only screen and (max-width: 567px) {
+	
+	h1, h2 { font-size:34px; } 
+	h3 { font-size:30px;}
+	.bid-action { font-size:14px; }
+	.upcoming-auctions h4, .closed-auctions h4 { font-size:15px; }
+	.fmenu li a, .footer-top .footer-menu li a { font-size:14px; }
+	.bid-features li span:before {  -moz-transform:scale(0.7); -webkit-transform:scale(0.7); -ms-transform:scale(0.7); transform:scale(0.7); margin:-3px 4px 0 0; }
+	.bid-features li span { font-size:15px; padding:0 10px; }
+	.services li { font-size:16px; }
+	.youtube-video { float:none; width:auto; }
+	.video-contain { position:static; width:auto; padding:10px 0; }
+	.offer { display:block; }
+	.offer span { display:block; text-align:center; padding:0; font-size:26px; }
+	.offer span em { border:0; padding:0; }
+	.mobile-group { margin-top:-95px; }
+	.bidding-options { margin-top:135px; }
+	.bid-features li { margin:5px 0 0; } 
+	.instruction-box h5 { font-size:18px; }
+	#logo img { width:300px; height:77px; }
+	.infographic { text-align:center; margin:0 0 80px; }
+	.women-image { -moz-transform:scale(0.6); -webkit-transform:scale(0.6); -ms-transform:scale(0.6); transform:scale(0.6); -moz-transform-origin:0 100%; -webkit-transform-origin:0 100%; -ms-transform-origin:0 100%; transform-origin:0 100%; float:left; margin:0; }
+	.win-big { font-size:36px; padding:0 0 0 60px; }
+	.win-big span { font-size:60px; }
+	.discount { margin:0 0 0 180px; }
+	.tabnav li a { font-size:15px; padding:10px; }
+	.auction-info li span { font-size:15px; }
+	.product-family h3 { font-size:28px; }
+	.overview-table tbody td:first-child { width:170px; }
+	.product-family { margin-top:-45px; }
+	.product-img-box a.bid-credit { display:block; float:none; width:auto !important; clear:both; padding:20px 0 0; margin:0; position:static; text-align:center; }
+	.zoomContainer { width:100% !important; left:0 !important; padding:0 15px; }
+	.zoomWindow { left:0 !important; right:0 !important; float:none !important; margin:auto !important; }
+	.zoomWindowContainer { width:auto !important; }
+	
+	.auction-section .product-image img { width:100%; } 
+	
+	
+}
+/*==========================================================================================================*/
+/* only iphone landscape 340 by 478*/
+@media only screen and (max-width: 480px) {
+	 
+	
+}
+/*==========================================================================================================*/
+/* only iphone portrait 300 by 479*/
+@media only screen and (max-width: 479px) {
+	
+	.welcome-section h1 { font-size:28px; }
+	.offer span { font-size:22px; }
+	.bid-features li span { float:none; width:auto; display:block; }
+	.bid-title h4 { font-size:26px; }
+	.bid-title { padding:8px 0 6px; }
+	.bid-features li { margin:0; }
+	.bid-features ul { padding:10px 0 7px; }
+	.auction-section h3 { font-size:26px; margin:0 0 20px; }
+	.auction-block h4 { font-size:18px; }
+	.bid-option-row .button.bid-now { padding:0 15px; min-width:1px; }
+	.auction-section .col { float:none; width:auto; }
+	.bid-action { font-size:16px; }
+	.closed-auctions h3 { border:0; padding-top:0; }
+	.user-login .formlist li { float:none; width:auto; padding:0; margin:10px 0 0; }
+	.user-login .button.btn-xs, .user-login .formlist li.actions input[type="submit"] { font-size:17px; font-weight:500; width:100%; text-align:center; text-indent:-27px; float:none; }
+	.user-login a.button.btn-xs { float:none; }
+	.user-login .actions span { display:block; float:none; width:auto; text-align:center; margin:5px 0; }
+	.user-login .formlist li:first-child { margin:0; }
+	.signup-form h2 { font-size:34px; }
+	.signup-form { font-size:14px; padding:20px 15px 15px; }
+	.formlist li.fields .input-box { float:none; width:auto; padding:0; margin:12px 0 0; }
+	.formlist li.fields { margin:0; }
+	.signup-form .formlist li { padding:0; }
+	.signup-form .formlist li.terms { margin-top:8px; }
+	.signup-form .formlist li.actions { margin:12px 0 0; }
+	.signup-form .formlist li.actions .button, .signup-form .formlist li.actions input[type="submit"] { text-indent:0; }
+	.women-image { display:none; }
+	.infographic { margin:0 0 10px; }
+	.win-big { margin:0; padding:0 20px; margin:0 -15px 10px; text-align:center; }
+	.discount { margin:0; text-align:center; } 
+	.cols4 .col { width:auto; float:none; } 
+	.mobile-group { margin-top:-65px; }
+	.bidding-options { margin-top:95px; }
+	.service-box h4 { font-size:19px; }
+	.instruction-box h5 br { display:none; }
+	.logos figure { max-width:40%; }
+	.fmenu li a, .footer-top .footer-menu li a { font-size:13px; }
+	.fmenu li { padding:2px 10px; }
+	.fmenu ul { margin:0 -12px; }
+	.footer-menu { text-align:center; }
+	.footer-menu li { float:none; display:inline-block; }
+	.account-bar > ul > li { float:none; margin:0 0 10px !important; }
+	#menu, #login-trigger, #account-trigger { font-size:16px; }
+	.menulines, .menulines:before, .menulines:after { width:24px; }
+	.cols3 .col { float:none; width:auto; }
+	.product-family h3 { font-size:24px; }
+	.tabnav { display:none; } 
+	.tabMobiletrigger { background:#f2f2f2; font-size:20px; margin:0; padding:8px 18px; cursor:pointer; border-top:1px solid #ddd; }
+	.tab-container h2:first-child { border:0; }
+	.timer-box { position:static; width:auto; margin:0 0 15px; } 
+	.timer-box .timer { display:block; } 
+	.bid-box { margin:0; }
+	.timer-box-content { display:block; }
+	.timer-block { padding:13px 15px 15px; display:block; }
+	.overview-table tbody tr { border-top:1px solid #ddd; }
+	.overview-table tbody tr td { display:block; width:auto; border:0; padding:0 18px; margin:0 0 5px; }
+	.overview-table tbody td:first-child { width:auto; border:0; font-weight:500; font-size:15px; margin:5px 0 0; }
+	.product-group .mobile-group { margin-top:-50px; }
+	.bidding-options.product-group { margin-top:75px; }
+	#gal1 a { padding:0 5px; }
+	#gal1 { margin:0 -5px; padding:0 20px; }
+	.slick-prev:before, .slick-next:before { font-size:22px; }
+	.slick-prev { left:-10px; }
+	.slick-next { right:-10px; }
+	.slick-prev, .slick-next { margin-top:-16px; }
+	.zoomWrapper { margin:0 0 15px; }
+	.user-login ul { padding:15px; }
+	
+	.live-auctions.auction-section .product-image img { width:100%; }
+	
+} 
+/*==========================================================================================================*/
+/* Retina css */ 
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 2) {
+	.sprites, .sp-after:after, .sp-before:before, .social li a, .actions a.button:before, .button.btn-login:before, .youtube-video a:before, .bid-features li span:before, .bid-btn, .bid-credit:after, .button.buy-now:before, .services li:before, .rules li:before, .alert:before, .breadcrumb li:before { background-image:url(../images/bgi/sprites%402x.png);
+	-moz-background-size:238px 208px; -ms-background-size:238px 208px; -o-background-size:238px 208px; -webkit-background-size:238px 208px; background-size:238px 208px;}
+}

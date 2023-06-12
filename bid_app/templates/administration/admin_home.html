@@ -1,0 +1,112 @@
+
+{% extends 'administration/index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+      
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div class="card">
+            
+            <div class="card-body">
+              
+              <div class="row">
+                
+                <div class="col-9">
+                  <div class="d-flex align-items-center align-self-start">
+                    <h3 class="mb-0">{{bidder}}</h3>
+                    
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="icon icon-box-success ">
+                    <span class="mdi mdi-arrow-top-right icon-item"></span>
+                  </div>
+                </div>
+              </div>
+               <h6><a herf="/view_user">Total Bidder</a></h6>
+            </div>
+          
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div class="card">
+            
+            <div class="card-body">
+              <div class="row">
+                <div class="col-9">
+                  <div class="d-flex align-items-center align-self-start">
+                    <h3 class="mb-0">{{seller}}</h3>
+                    
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="icon icon-box-success">
+                    <span class="mdi mdi-arrow-top-right icon-item"></span>
+                  </div>
+                </div>
+              </div>
+              <a herf=""><h6>Total Auctioneer</h6></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div class="card">
+            
+            <div class="card-body">
+              <div class="row">
+                <div class="col-9">
+                  <div class="d-flex align-items-center align-self-start">
+                    <h3 class="mb-0">{{auction}}</h3>
+                    
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="icon icon-box-success">
+                    <span class="mdi mdi-arrow-top-right icon-item"></span>
+                  </div>
+                </div>
+              </div>
+              <a herf="{% url 'admin_view_product' %}"><h6>Total Auction Products</h6></a>
+            </div>
+
+            
+          </div>
+         
+        </div>
+        <!-- <div class="card-body">
+          <div class="row">
+            <div class="col-9">
+              <div class="d-flex align-items-center align-self-start">
+                <h3 class="mb-0">{{auction}}</h3>
+                
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="icon icon-box-success">
+                <span class="mdi mdi-arrow-top-right icon-item"></span>
+              </div>
+            </div>
+          </div>
+           <a herf=""><h6>Total Analytics</h6></a> 
+          <iframe width="600" height="700" src="https://lookerstudio.google.com/embed/reporting/2d265667-63dd-472d-bf7c-5e591cb18881/page/tWDGB" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div> 
+         -->
+         <div>
+          
+         <iframe width="600" height="700" src="https://lookerstudio.google.com/embed/reporting/2d265667-63dd-472d-bf7c-5e591cb18881/page/tWDGB" frameborder="0" style="border:0" allowfullscreen></iframe>
+         <br></br>
+         <iframe width="600" height="950" src="https://lookerstudio.google.com/embed/reporting/24cd779e-8db6-403d-879c-55fa519d24a4/page/4VDGB" frameborder="0" style="border:0" allowfullscreen></iframe>
+         </div>
+
+      </div>
+      
+
+
+    </div>
+    
+  </div>
+
+    {% endblock %}

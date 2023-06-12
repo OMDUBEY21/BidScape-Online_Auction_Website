@@ -1,0 +1,227 @@
+
+{% extends 'administration/index.html' %}
+{% load static %}
+{% block body %}
+{% load custom_tags %}
+<div class="main-panel">
+    <div class="content-wrapper">
+      
+      <div class="row">
+        
+        <div class="col-md-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-row justify-content-between">
+                <h4 class="card-title mb-1">Product Details</h4>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="preview-list">
+
+
+                    <div class="preview-item border-bottom">
+                        <div class="col-md-6"><hr>
+                            <h4><span class="text-muted mb-1">AuctionID</span> :  {{product.id}} </h4><hr>
+                            <h4><span class="text-muted mb-1">Name</span> :  {{product.name}} </h4><hr>
+                            <h4><span class="text-muted mb-1">Category</span> :  {{product.category}} </h4><hr>
+                            <h4><span class="text-muted mb-1">Start Price</span> :  {{product.min_price}} </h4><hr>
+                            <h4><span class="text-muted mb-1">Final Price</span> :  {{product.final_price}} </h4><hr>
+                            <h4><span class="text-muted mb-1">Bid type</span> :  {{product.bid_type}} </h4><hr>
+                            
+                        </div>
+                      
+                        <div class="col-md-6" style="height:100px;"><hr>
+                            <h4>  <img src="{{product.images.url}}" style="width:150px;height:140px"></h4>
+                            <h4><span class="text-muted mb-1">Bid Start Time</span> :  {{product.session}} </h4><hr>
+                            <h4><span class="text-muted mb-1">Description</span> :  {{product.description}} </h4><hr>
+                        </div>
+                     
+                        
+                    </div>
+                  
+                    
+                    
+                    
+                  </div>
+                </div>
+              
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        
+        <div class="col-md-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-row justify-content-between">
+                <h4 class="card-title mb-1">Product Specification</h4>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="preview-list">
+
+
+                    <div class="preview-item border-bottom">
+                        <div class="col-md-12"><hr>
+                          {% for i,j in product.parameter|change_dict %}
+                            <h4><span class="text-muted mb-1">{{i}}</span> :  {{j}} </h4><hr>
+                          {% endfor %}
+                          <h4><span class="text-muted mb-1">Status</span> :  {{product.status}} </h4><hr>
+                        </div>
+                        
+                    </div>
+                  
+                    
+                    
+                    
+                  </div>
+                </div>
+              
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        
+        <div class="col-md-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-row justify-content-between">
+                <h4 class="card-title mb-1">Admin Comment</h4>
+                <p class="text-muted mb-1">Your data status</p>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="preview-list">
+
+
+                    <div class="preview-item border-bottom">
+                        <div class="col-md-6"><hr>
+                            <h4><span class="text-muted mb-1">Comment </span>:  {{product.comment}}</h4><hr>
+                        </div>
+                      <div class="preview-item-content d-sm-flex flex-grow">
+                        <form action="" method="post">
+                          {% csrf_token %}
+                          <textarea name="comment" placeholder="Write your comment" style="width:500px;height:100px"></textarea>
+<br>
+                          <input type="submit" class="btn btn-primary" value="comment">
+                        </form>
+                      </div>
+                    </div>
+                  
+                    
+                    
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        
+        <div class="col-md-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-row justify-content-between">
+                <h4 class="card-title mb-1">Seller Details</h4>
+                <p class="text-muted mb-1">Your data status</p>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="preview-list">
+
+
+                    <div class="preview-item border-bottom">
+                        <div class="col-md-6"><hr>
+                            <h4><span class="text-muted mb-1">Name </span>:  {{product.user.auctionuser_set.all.0.user.first_name}} {{product.user.auctionuser_set.all.0.user.last_name}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Email </span>:  {{product.user.auctionuser_set.all.0.user.email}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Address </span>: {{product.user.auctionuser_set.all.0.address}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Contact </span>: {{product.user.auctionuser_set.all.0.contact}}</h4><hr>
+                        </div>
+                      <div class="preview-item-content d-sm-flex flex-grow">
+                        <div class="col-md-6" style="height:100px;"><hr>
+                            <h4>  <img src="{{product.user.auctionuser_set.all.0.image.url}}" style="width:150px;height:140px"></h4>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    
+                    
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        
+        <div class="col-md-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-row justify-content-between">
+                <h4 class="card-title mb-1">Winner Details</h4>
+                <p class="text-muted mb-1">Your data status</p>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="preview-list">
+
+
+                    <div class="preview-item border-bottom">
+                        <div class="col-md-6"><hr>
+                          {% if product.winner %}
+                            <h4><span class="text-muted mb-1">Name </span>:  {{product.winner.auctionuser_set.all.0.user.first_name}} {{product.winner.auctionuser_set.all.0.user.last_name}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Email </span>:  {{product.winner.auctionuser_set.all.0.user.email}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Address </span>: {{product.winner.auctionuser_set.all.0.address}}</h4><hr>
+                            <h4><span class="text-muted mb-1">Contact </span>: {{product.winner.auctionuser_set.all.0.contact}}</h4><hr>
+                            {% else %}
+                            <h4>Winner has not announced.<hr>
+                          {% endif %}
+                          
+                        </div>
+                      <div class="preview-item-content d-sm-flex flex-grow">
+                        {% if product.winner %}
+                        <div class="col-md-6" style="height:100px;"><hr>
+
+                            <h4>  <img src="{{product.winner.auctionuser_set.all.0.image.url}}" style="width:150px;height:140px"></h4>
+                        </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  
+                    
+                    
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    {% endblock %}

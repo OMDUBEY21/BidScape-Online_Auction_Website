@@ -1,0 +1,61 @@
+{% extends 'administration/index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title"> Add Sub category </h3>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">sub-category</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Add Sub category</h4>
+              <form class="forms-sample" action="" method="post">
+                  {% csrf_token %}
+
+                  <div class="form-group">
+                    <label for="exampleInputName1">Sub cactegory</label>
+                    <select class="form-control" id="exampleInputName1" name="cat" required>
+                        <option>Select Category</option>
+                        {% for i in cat  %}
+                            <option value="{{i.id}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+
+
+                <div class="form-group">
+                  <label for="exampleInputName1">Sub cactegory</label>
+                  <input type="text" class="form-control" id="exampleInputName1" name="subcat" required placeholder="Enter Sub Category">
+                </div>
+                
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-dark">Cancel</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+    {% if error %}
+    <script>
+        alert('One New Category Added Successfully');
+    </script>
+    {% endif %}
+{% endblock %}

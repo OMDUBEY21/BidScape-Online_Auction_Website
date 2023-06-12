@@ -1,0 +1,220 @@
+{% extends 'index.html' %}
+{% block body %}
+{% load static %}
+{% load custom_tags %}
+
+
+<div class="container" style="background:white">
+    <div class="container heading heading-v1">
+        <h3 style="text-transform: uppercase; font-size: 30px; margin-top: 5px; font-family: 'Trebuchet MS', Arial, sans-serif;">Add Product</h3>
+    </div>
+<div class="container-fluid" style="width:90%;margin-top:2%">
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="exampleFormControlInput1">Number of Parameter</label>
+          <input type="number" class="form-control" id="numberofparts" name="numberofparts" onkeyup="addrow(this)" placeholder="Number of parts">
+        </div>
+        </div>
+        
+        
+
+
+        <div id="parts">
+          
+        </div>
+
+        {% for i,j in data.parameter|change_dict %}
+          <div class="form-row" id="req-`+req+`" style="padding-left:7px;padding-right:7px">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1"> Parameter Name</label>
+              <input type="text" class="form-control" name="edit_parts_name-{{forloop.counter}}" placeholder="Parts Name" value="{{i}}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1"> Value </label>
+              <input type="text" class="form-control" name="edit_parts_image-{{forloop.counter}}" value="{{j}}">
+            </div>
+          </div>
+        {% endfor %}
+
+
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Category</label>
+                    <select class="form-control" id="programming" name="cat">
+                        <option value="">---select Category---</option>
+                            {% for i in cat %}
+                            <option value="{{i.id}}" {% if data.category.category.id == i.id %} selected {% endif %}>{{i.name}}</option>
+                            {% endfor %}
+                    </select>
+                </div>
+            </div>
+    
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Sub-Category</label>
+                    <select class="form-control" id="courses" name="scat">
+    
+                    </select>
+                </div>
+            </div>
+        </div>
+
+       
+      
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Auction Type</label>
+                    <select class="form-control" id="auction_type" name="bid_type" onchange="changemxmin()">
+                            <option value="">---select Auction Type---</option>
+                            <option value="Auction" {% if data.bid_type == 'Auction' %} selected {% endif %}>Auction</option>  
+                            <option value="Tendor" {% if data.bid_type == 'Tendor' %} selected {% endif %}>Tendor</option>  
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Product Image</label>
+                    <input type="file" class="form-control" id="exampleInputPassword1" name="image">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <img src="{{data.images.url}}" style="width:100%">
+              </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Start Session Date</label>
+                    <input type="datetime-local" class="form-control" name="start" value="{{data.session|date:'Y-m-d'}}T{{data.session|time:'H:i'}}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Price Interval</label>
+                    <input type="number" class="form-control" name="interval_price" value="{{data.interval_price}}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Product name</label>
+                    <input type="text" class="form-control" placeholder="Enter product Name" id="exampleInputPassword1" value="{{data.name}}" name="p_name">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label id="auction_label">Minimum Price</label>
+                    <input type="number" class="form-control" id="exampleInputPassword1" name="price" value="{{data.min_price}}">
+                </div>
+            </div>
+            
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Description</label>
+                    <textarea class="form-control" id="exampleInputPassword1" name="desc" placeholder="Write product description">{{data.description}}</textarea>
+                </div>
+            </div>
+        </div>
+      <button type="submit" class="btn btn-primary" style="margin-bottom:10%">Submit</button>
+    </form>
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+  <script>
+    $("#programming").ready(function () {
+        var url = '/load-courses/';  // get the url of the `load_courses` view
+        var programmingId = $("#programming").val();  // get the selected programming ID from the HTML input
+  
+        $.ajax({                       // initialize an AJAX request
+          url: url,                    // set the url of the request (= localhost:8000/load-courses/)
+          data: {
+            'programming': programmingId       // add the programming id to the GET parameters
+          },
+          success: function (data) {   // `data` is the return of the `load_courses` view function
+            $("#courses").html(data); 
+            myselected = "{{data.category.id}}"; // replace the contents of the course input with the data that came from the server
+            $("#courses option").each(function()    
+			{   
+                if($(this).val() == myselected){
+                    $(this).attr('selected', 'selected');
+                }
+    		    
+			});
+          }
+        });
+  
+      });
+
+
+
+    $("#programming").change(function () {
+      var url = '/load-courses/';  // get the url of the `load_courses` view
+      var programmingId = $(this).val();  // get the selected programming ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/load-courses/)
+        data: {
+          'programming': programmingId       // add the programming id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_courses` view function
+          $("#courses").html(data);  // replace the contents of the course input with the data that came from the server
+        }
+      });
+
+    });
+  </script>
+  <script>
+
+
+        var alldata = [0];
+
+        var req=0;
+        function deleterow(x, pid){
+            alldata.splice(alldata.indexOf(pid*1), 1);
+            x.parentElement.parentElement.remove(x);
+        }
+  
+        function addrow(x){
+            var numberofparts = document.getElementById('numberofparts').value;
+            document.getElementById('parts').innerHTML = "";
+            for(var i=0;i<numberofparts;i++){
+                req = i;
+                var reqhtml = `<div class="form-row" id="req-`+req+`">
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleFormControlInput1">`+ ((i*1)+1) +` Parameter Name</label>
+                                        <input type="text" class="form-control" name="parts_name-`+req+`" placeholder="Parts Name">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleFormControlInput1">`+ ((i*1)+1) +` Value </label>
+                                        <input type="text" class="form-control" name="parts_image-`+req+`">
+                                    </div>
+                                    
+                                </div>`;
+                document.getElementById('parts').innerHTML += reqhtml;
+            }
+        }
+
+
+
+
+        function changemxmin(){
+            data = document.getElementById('auction_type').value;
+            if(data == "Tendor"){
+                document.getElementById('auction_label').innerHTML = "Maximum Price";
+            }else{
+                document.getElementById('auction_label').innerHTML = "Minimum Price";
+            }
+        }
+  </script>
+
+
+
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+  <link rel = stylesheet href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+  <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
+
+<style>
+
+  #example_length{
+      display:none;
+    padding:10px;
+    z-index:-1;
+    text-align:left;
+  }
+
+  .dataTables_length{
+    display:flex;
+    text-align:left;
+  }
+
+  .paginate_button{
+      border:1px solid gray;
+      padding:6px;
+      cursor: pointer;
+      color:white;
+      background-color:green;
+      margin:1px;
+  }
+
+  .dataTables_info{
+    display:none;
+  }
+
+  .title{
+        text-align: center;
+        position: relative;
+        line-height: 60px;
+        }
+        .title::after{
+            content: '';
+            background: #ff523b;
+            width: 80px;
+            height: 5px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+</style>
+
+<div id="inner_banner" class="inner_banner_section">
+  <div class="container">
+    <div class="breadcrumbs">
+          <h3 class="title" style="text-transform: uppercase; font-size: 40px; margin-top: 40px; font-family: 'Trebuchet MS', Arial, sans-serif;">Winners</h3>
+    </div>
+  </div>
+</div>
+<br>
+
+    <center>
+    <div class="container" style ="margin-bottom : 10%">
+      <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th>Sr. No</th>
+            <th>Image</th>
+            <th>Winner</th>
+            <th>Email</th>
+            <th>Booking Price</th>
+            <th>Product</th>
+            <th>Start</th>
+            <th>Payment Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        {% for i in product %}
+
+          <tr>
+              <td>{{forloop.counter}}</td>
+              <td>
+                  <img src="{{i.winner.auctionuser_set.all.0.image.url}}" style="width:80px">
+              </td>
+              <td>{{i.winner.first_name}} {{i.winner.last_name}}</td>
+              <td>{{i.winner.email}}</td>
+              <td>{{i.final_price}}</td>
+              <td>{{i.name}}</td>
+              <td>{{i.session}}</td>
+              <td>{{i.payment_status}}</td>
+                <td>
+                    <a href="{% url 'product_detail' i.id %}">
+                        <i class="fa fa-info btn btn-primary" ></i>
+                    </a>
+              </td>
+          </tr>
+
+        {% empty %}
+          <tr>
+              <td colspan="9">Data Not found</td>
+          </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+ </div></center>
+<script>
+$(document).ready(function() {
+	//Only needed for the filename of export files.
+	//Normally set in the title tag of your page.
+	document.title='Simple DataTable';
+	// DataTable initialisation
+	$('#example').DataTable(
+		{
+			"dom": '<"dt-buttons"Bf><"clear">lirtp',
+			"paging": true,
+			"autoWidth": true,
+			"buttons": [
+				'colvis',
+				'copyHtml5',
+        'csvHtml5',
+				'excelHtml5',
+        'pdfHtml5',
+				'print'
+			]
+		}
+	);
+});
+</script>
+
+{% endblock %}

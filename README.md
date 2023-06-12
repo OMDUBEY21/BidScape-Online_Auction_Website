@@ -76,7 +76,7 @@ Used Tech Stack
 
     `python manage.py runserver`
   
-5. If you are Docker user then u can use this command:
+5. If you are Docker user then u can use this command: <br>
    docker pull omdubey/auction_website
     
     

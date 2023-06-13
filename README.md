@@ -17,7 +17,7 @@ This website have features such as
 3. Home page lists all auctions with most bids for a current auction.
 4. When timeline expires, the product/service is rewarded to highest bidder and order is placed with cash on delivery using razorpay.
 5. constant supervision by the administrator for security reasons.
-6. google analytics
+6. Google Analytics is utilized to gather real-time data, while Looker Studio is employed to visualize and analyze that data in a comprehensive manner.
 7. Deployed on Docker
 
 

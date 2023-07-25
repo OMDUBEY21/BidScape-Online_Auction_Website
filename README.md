@@ -130,6 +130,7 @@ Bidder page:
 ![b5](https://github.com/OMDUBEY21/BidScape-Online_Auction_Website/assets/84987833/d6c2f5f7-e65e-4c08-9f6a-2fffb5346958)
 
 <br>
+
 <br>
 Seller page:
 
